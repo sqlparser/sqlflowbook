@@ -1,0 +1,149 @@
+openapi: 3.0.3
+info:
+  title: Swagger Gudu SQLFlow - OpenAPI 3.0
+  description: |-
+    This is a sample Gudu SQLFlow Server based on the OpenAPI 3.0 specification.  You can find out more about
+    Gudu SQLFlow at [https://www.gudusoft.com/](https://www.gudusoft.com/). In the third iteration of the Gudu SQLFlow, we've switched to the design first approach!
+    You can now help us improve the API whether it's by making changes to the definition itself or to the code.
+    That way, with time, we can improve the API in general, and expose some of the new features in OAS3.
+    
+
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: support@sqlflow.cn
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.11
+externalDocs:
+  description: Find out more about Gudu SQLFlow
+  url: https://www.gudusoft.com/
+servers:
+  - url: https://api.gudusoft.com
+tags:
+  - name: sqlflow
+    description: Sqlflow Generation Interface
+    externalDocs:
+      description: Find out more
+      url: https://www.gudusoft.com/
+
+paths:
+  /sqlflow/generation/sqlflow:
+    post:
+      tags:
+        - sqlflow
+      summary: generate sqlflow model
+      description: generate sqlflow model
+      operationId: postSqlflow
+      parameters:
+        - name: userId
+          in: query
+          description: the user id of sqlflow web or client
+          required: true
+          schema:
+            type: string
+        - name: token
+          in: query
+          description: the token of sqlflow client request. not required for sqlflow web but required for sqlflow client
+          required: false
+          schema:
+            type: string
+        - name: sqltext
+          in: query
+          description: sql text
+          required: false
+          schema:
+            type: string
+        - name: sqlfile
+          in: query
+          description: sql file
+          required: false
+          schema:
+            type: string
+        - name: dbvendor
+          in: query
+          description:  database vendor
+          required: true
+          schema:
+            type: string
+            enum:
+              - dbvbigquery
+              - dbvcouchbase
+              - dbvdb2
+              - dbvgreenplum
+              - dbvhana 
+              - dbvhive 
+              - dbvimpala 
+              - dbvinformix 
+              - dbvmdx 
+              - dbvmysql 
+              - dbvnetezza 
+              - dbvopenedge 
+              - dbvoracle 
+              - dbvpostgresql 
+              - dbvredshift 
+              - dbvsnowflake 
+              - dbvmssql 
+              - dbvsybase 
+              - dbvteradata 
+              - dbvvertica
+        - name: showRelationType
+          in: query
+          description:  show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          schema:
+            type: string
+            default: fdd
+        - name: simpleOutput
+          in: query
+          description:  whether simple output relation
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - name: ignoreRecordSet
+          in: query
+          description:  whether simple output relation
+          required: false
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sqlflow'          
+
+components:
+  schemas:
+    Sqlflow:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int64
+          example: 200
+        data:
+          type: object
+          properties:
+            dbvendor:
+              type: string
+              example: "dbvoracle"
+            dbobjs:
+              type: array
+              items:
+                $ref: '#/components/schemas/Dbobjs'
+            relations:
+              type: array
+              items:
+                $ref: '#/components/schemas/Relation'
+            sessionId:
+              type: string
+              example: "6172a4095280ccce97e996242d8b4084f46e2c954455e71339aeffccad5f0d57_1599501108040"
+    Dbobjs:
+      type: object
+    Relation:
+      type: object
+
