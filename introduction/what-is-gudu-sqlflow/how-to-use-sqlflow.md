@@ -8,10 +8,28 @@ description: 提纲 https://github.com/sqlparser/sqlflow_public#how-to-use-sqlfl
 * Call the [Restful API](https://github.com/sqlparser/sqlflow\_public/blob/master/api) of the SQLFlow in your own code to get data lineage metadata decoded by the SQLFlow from the SQL script.
 * The [on-premise version](https://github.com/sqlparser/sqlflow\_public/blob/master/install\_sqlflow.md) of SQLflow enables you to use it on your own server to keep the data safer.
 
+### Online Web UI
+
+{% content-ref url="../ui/" %}
+[ui](../ui/)
+{% endcontent-ref %}
+
 ### Restful APIs
 
 {% content-ref url="../../api-docs/using-the-rest-api.md" %}
 [using-the-rest-api.md](../../api-docs/using-the-rest-api.md)
+{% endcontent-ref %}
+
+### On-premise Server installation
+
+{% content-ref url="../installation/" %}
+[installation](../installation/)
+{% endcontent-ref %}
+
+### Java SDK
+
+{% content-ref url="../java-library/" %}
+[java-library](../java-library/)
 {% endcontent-ref %}
 
 ### SQLFlow architecture
