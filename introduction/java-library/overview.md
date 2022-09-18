@@ -5,12 +5,14 @@ description: >-
 
 # Overview
 
-
-
 * Support more than 20 major databases and still growing
 * Build from scratch, no third-party library needed.
 * Easy integration.
-* Rich demo code to help you start quickly
+* Rich demo code to help you start quick
+
+<figure><img src="../../.gitbook/assets/sqlflow_components.png" alt=""><figcaption></figcaption></figure>
+
+## 以下内容感觉个人有疑问，先暂停一下
 
 ### DataFlowAnalyzer
 
