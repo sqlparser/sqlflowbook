@@ -7,6 +7,7 @@
   * [How to use SQLFlow](introduction/what-is-gudu-sqlflow/how-to-use-sqlflow.md)
 * [Installation](introduction/installation/README.md)
   * [Linux](introduction/installation/linux.md)
+  * [MacOS](introduction/installation/macos.md)
   * [Windows](introduction/installation/windows.md)
 * [Getting Started](introduction/getting-started.md)
 * [UI](introduction/ui/README.md)
