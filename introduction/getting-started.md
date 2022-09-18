@@ -5,3 +5,5 @@
 
 
 [https://www.sqlflow.cn/936-2/](https://www.sqlflow.cn/936-2/)
+
+上述内容是中文的，需要把上述内容翻译成英文的
