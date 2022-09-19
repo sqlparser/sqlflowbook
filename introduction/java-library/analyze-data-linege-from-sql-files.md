@@ -1,18 +1,16 @@
 # Analyze data linege from SQL files
 
-Please use `/f` parameter to specify a single SQL file, or use `/d` parameter to specfify a directory that inculdes multiple SQL files.
+Use `/f` parameter to specify a single SQL file, or use `/d` parameter to specfify a directory that inculdes multiple SQL files.
 
 ```shell
 java -jar gudusoft.dlineage.jar /t mssql /f path_to_sql_file
 ```
 
+An sample sql file could be:
 
-
-
-
-
-
-
+```sql
+INSERT INTO raw_customers (id, first_name, last_name) VALUES(0, '', '');
+```
 
 An output XML will be generated:
 
@@ -27,4 +25,12 @@ An output XML will be generated:
     </table>
 </dlineage>
 ```
+
+Some indications for the above resposne:
+
+* coordinate\<x,y,z>: x is the correspond line number, y is the column number and z is the has code value of the file.
+* process: the type of the data lineage
+* name: table field name or sql name
+
+
 

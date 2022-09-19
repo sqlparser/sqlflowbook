@@ -29,7 +29,7 @@ description: >-
     ```
 
 
-* [DataFlowAnalyzer](overview.md#dataflowanalyzer) Binary package \
+* Binary package \
   Library [binary file](https://github.com/sqlparser/gsp\_demo\_java/releases/) need to be downloaded on your machine.
 
 
