@@ -17,9 +17,10 @@
   * [Schema](introduction/ui/schema.md)
 * [Java Library](introduction/java-library/README.md)
   * [Overview](introduction/java-library/overview.md)
-  * [Usage](introduction/java-library/usage.md)
-  * [Analyze data linege from SQL files](introduction/java-library/analyze-data-linege-from-sql-files.md)
-  * [Analyze data linege from a database](introduction/java-library/analyze-data-linege-from-a-database.md)
+  * [Usage](introduction/java-library/usage/README.md)
+    * [Analyze data linege from SQL files](introduction/java-library/usage/analyze-data-linege-from-sql-files.md)
+    * [Analyze data linege from a database](introduction/java-library/usage/analyze-data-linege-from-a-database.md)
+    * [Resolve the ambiguous columns in SQL query](introduction/java-library/usage/resolve-the-ambiguous-columns-in-sql-query.md)
 
 ## CONCEPTS
 

@@ -7,8 +7,6 @@ description: >-
 
 <figure><img src="../../.gitbook/assets/sqlflow_components.png" alt=""><figcaption></figcaption></figure>
 
-## 以下内容感觉个人有疑问，先暂停一下
-
 ### DataFlowAnalyzer
 
 Collects the end-to-end column-level data lineage in the Data Warehouses environment by analyzing SQL script especially stored procedure like PL/SQL.
