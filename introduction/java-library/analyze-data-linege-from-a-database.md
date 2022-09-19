@@ -4,9 +4,14 @@ Since version 2.2.0, the dlineage tool no longer connect to the database to anal
 
 ### Extract metdata from database
 
-[sqlflow-ingester](https://github.com/sqlparser/sqlflow\_public/releases) is a tool that extract metadata from various database, you can download the tool here:
+[sqlflow-ingester](https://github.com/sqlparser/sqlflow\_public/releases) is a tool that extract metadata from various database, you can download the tool here:  https://github.com/sqlparser/sqlflow\_public/releases\
 
-https://github.com/sqlparser/sqlflow\_public/releases
+
+You can find more details for [sqlflow-ingester](https://github.com/sqlparser/sqlflow\_public/releases) here:
+
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
+{% endcontent-ref %}
 
 Under linux:
 

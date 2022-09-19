@@ -1,12 +1,14 @@
 # Resolve the ambiguous columns in SQL query
 
+Given the following SQL:
+
 ```sql
 select ename
 from emp, dept
 where emp.deptid = dept.id
 ```
 
-column `ename` in the first line is not qualified by table name `emp`, so it’s ambiguous to know which table this column belongs to?
+Column `ename` in the first line is not qualified by table name `emp`, so it’s ambiguous to know which table this column belongs to?
 
 #### solution 1, provides create table DDL
 
