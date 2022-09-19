@@ -48,4 +48,4 @@ sybase,teradata,soql,vertica
 
 * [Analyze data linege from SQL files](analyze-data-linege-from-a-database.md)
 * [Analyze data linege from a database](analyze-data-linege-from-sql-files.md)
-* [Resolve the ambiguous columns in SQL query](resolve-the-ambiguous-columns-in-sql-query.md)
+* [Resolve the ambiguous columns in SQL query](usage/resolve-the-ambiguous-columns-in-sql-query.md)
