@@ -6,8 +6,6 @@ description: >-
 
 # Getting Started
 
-### 1. Introduction
-
 Gudu SQLFlow is a visual data lineage analysis tool. It is often used with metadata management tools and helps improve enterprise data governance.
 
 > Tips:
@@ -42,4 +40,12 @@ Data from the table _`deptsal`_ come from table _`dept`_ and table _`emp`_. More
 
 Through Gudu SQLFlow, we can visualize the above data lineage as:
 
-<figure><img src="../.gitbook/assets/111.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/111.png" alt=""><figcaption></figcaption></figure>
+
+### What's next?
+
+* [Sign up a new Gudu account](sign-up-a-new-account.md)
+* Read more about [Gudu SQLFlow UI ](../ui/)
+* Install a [SQLFlow Server](../installation/)
+* Use [SQLFlow Java Library](../java-library/)
+* Analyze your data through [Rest API ](broken-reference)
