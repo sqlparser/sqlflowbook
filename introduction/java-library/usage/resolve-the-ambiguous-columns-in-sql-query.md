@@ -10,7 +10,7 @@ where emp.deptid = dept.id
 
 Column `ename` in the first line is not qualified by table name `emp`, so it’s ambiguous to know which table this column belongs to?
 
-#### solution 1, provides create table DDL
+#### Solution 1:  table DDL
 
 Put the following DDL before the above SQL statement in the same SQL file. the column `ename` will be linked to the table `emp` correctly.
 
@@ -27,7 +27,7 @@ create table dept(
 );
 ```
 
-#### solution 2: provide metadata exported from database
+#### Solution 2: metadata exported from database
 
 Since dlineage v2.2.0 (2022/7/21), This dlineage tool supports `/env` parameter to accept a metadata json file which includes the metadata exported from a database.
 
