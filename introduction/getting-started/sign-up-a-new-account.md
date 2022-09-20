@@ -18,11 +18,10 @@ description: 翻译自https://www.sqlflow.cn/936-2/
 
 ### Gudu SQLFlow Account
 
-There are three different account types:
+There are two different account types:
 
 * Basic Account
 * Premium Account
-* Team Account
 
 #### Basic Account
 
@@ -40,6 +39,10 @@ There are three different account types:
 * Support to upload SQL files
 * Support Snowflake query history, Redshift log and more
 
-#### Team Account
+### Getting a free 7-day Premium Account
 
-* Contains multiple&#x20;
+Visit [this site](https://www.gudusoft.com/request-a-premium-account/) to request for a Premium Account. An email with activation code will be sent within 5 mins. Go to [https://sqlflow.gudusoft.com](https://sqlflow.gudusoft.com), click the icon in the upper right corner and check the following page:
+
+<figure><img src="../../.gitbook/assets/sqlflow-userid-secret-step1.png" alt=""><figcaption></figcaption></figure>
+
+Click the _Account_ menu item, chose "_activate by entering a coupon_" and enter the activation code.

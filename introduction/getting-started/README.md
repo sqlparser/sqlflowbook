@@ -9,7 +9,7 @@ Gudu SQLFlow is a visual data lineage analysis tool. It is often used with metad
 > Tips:
 >
 > * You need to have basic SQL knowledge to understand this doc.
-> * No data lineage knowledge is required before you start this doc. You can simply consider data lineage as the data relationship between tables in database.
+> * No data lineage knowledge required before you start this doc. You can simply consider data lineage as the data relationship between tables in database.
 
 &#x20;Let's analyze the following SQL statements to see how to sort out the data dependencies between tables/views.
 
