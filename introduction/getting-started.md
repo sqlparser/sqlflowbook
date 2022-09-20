@@ -1,9 +1,13 @@
+---
+description: >-
+  翻译自https://www.sqlflow.cn/936-2/ ;
+  https://www.sqlflow.cn/gudu-sqlflow-introduction
+---
+
 # Getting Started
 
-用户第一次使用本产品，需要仔细考虑在这里介绍些什么入门内容？
+### 1. Introduction
 
+Gudu SQLFlow is an analysis software for analyzing SQL statements and discovering the blood relationship of data. It is often used with metadata management tools and is a basic tool for enterprise data governance.a highly customized visual data lineage analysis tool
 
-
-[https://www.sqlflow.cn/936-2/](https://www.sqlflow.cn/936-2/)
-
-上述内容是中文的，需要把上述内容翻译成英文的
+### &#x20;
