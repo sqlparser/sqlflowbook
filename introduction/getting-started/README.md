@@ -1,7 +1,5 @@
 ---
-description: >-
-  翻译自https://www.sqlflow.cn/936-2/ ;
-  https://www.sqlflow.cn/gudu-sqlflow-introduction
+description: 翻译自https://www.sqlflow.cn/gudu-sqlflow-introduction
 ---
 
 # Getting Started
