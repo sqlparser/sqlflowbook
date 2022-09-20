@@ -30,7 +30,7 @@ GROUP  BY d.deptno,
           d.dname; 
 ```
 
-Data come from the table _`deptsal`_ come from the table _`dept`_ and table _`emp`_. More specifically, following data lineage relationship can be deduced:&#x20;
+Data of the table _`deptsal`_ come from the table _`dept`_ and table _`emp`_. More specifically, following data lineage relationship can be deduced:&#x20;
 
 * _`deptsal.dept_no`_ field comes from _`dept.deptno`_&#x20;
 * _`deptsal.dept_name`_ field comes from _`dept.name`_&#x20;
