@@ -4,14 +4,12 @@ description: 翻译自https://www.sqlflow.cn/gudu-sqlflow-introduction
 
 # Getting Started
 
-Gudu SQLFlow is a visual data lineage analysis tool. It is often used with metadata management tools and helps improve enterprise data governance.
+Let's analyze the following SQL statements to see how to sort out the data dependencies between tables/views.
 
 > Tips:
 >
 > * You need to have basic SQL knowledge to understand this doc.
-> * No data lineage knowledge required before you start this doc. You can simply consider data lineage as the data relationship between tables in database.
-
-&#x20;Let's analyze the following SQL statements to see how to sort out the data dependencies between tables/views.
+> * No data lineage knowledge is required before you start this doc. You can simply consider data lineage as the data relationship between tables in database.
 
 ```sql
 INSERT INTO deptsal
@@ -30,7 +28,7 @@ GROUP  BY d.deptno,
           d.dname; 
 ```
 
-Data from the table _`deptsal`_ come from table _`dept`_ and table _`emp`_. More specifically, following data lineage relationship can be deduced:&#x20;
+Data of the table _`deptsal`_ come from the table _`dept`_ and the table _`emp`_. More specifically, following data lineage relationship can be deduced:&#x20;
 
 * _`deptsal.dept_no`_ field comes from _`dept.deptno`_&#x20;
 * _`deptsal.dept_name`_ field comes from _`dept.name`_&#x20;

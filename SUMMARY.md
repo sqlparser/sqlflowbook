@@ -12,7 +12,7 @@
   * [MacOS](introduction/installation/macos.md)
   * [Windows](introduction/installation/windows.md)
 * [UI](introduction/ui/README.md)
-  * [How it works?](introduction/ui/how-it-works.md)
+  * [SQLText Editor](introduction/ui/sqltext-editor.md)
   * [Settings](introduction/ui/settings.md)
   * [Job Management](introduction/ui/job-management.md)
   * [Schema](introduction/ui/schema.md)
