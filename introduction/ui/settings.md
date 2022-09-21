@@ -27,3 +27,7 @@ We can observe the changes on parameters when switching different modes:
 ### Show transform
 
 <figure><img src="../../.gitbook/assets/185736610-6fba47eb-9dba-42cc-9f00-5af3ad22563f.gif" alt=""><figcaption></figcaption></figure>
+
+### Export the graph
+
+<figure><img src="../../.gitbook/assets/185734305-70c24757-c59c-40b4-b235-a79a214b7472.png" alt=""><figcaption></figcaption></figure>
