@@ -4,7 +4,7 @@ description: 翻译自https://www.sqlflow.cn/gudu-sqlflow-introduction
 
 # Getting Started
 
-Let's analyze the following SQL statements to see how to sort out the data dependencies between tables/views.
+Let's analyze the following SQL statements to see how to get the data dependencies between tables/views.
 
 > Tips:
 >
