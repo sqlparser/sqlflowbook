@@ -48,11 +48,3 @@ Show SQL expression doing the transformation
 Connect to the database to discover data lineage
 
 <figure><img src=".gitbook/assets/sqlflow-oracle-database-package.gif" alt=""><figcaption></figcaption></figure>
-
-## Link to the product
-
-If you write an article concerning Gudu SQLFlow, feel free to link to any pages on this site: [https://www.gudusoft.com](https://www.gudusoft.com/)
-
-If uncertain about which page to cite, we recommend this page: [https://www.gudusoft.com/sql-data-lineage-tool/](https://www.gudusoft.com/sql-data-lineage-tool/)
-
-We have also prepared one Gudu SQLFlow yearly premium accounts ($600) for you, if in need, reach out to me by filling in the form below.
