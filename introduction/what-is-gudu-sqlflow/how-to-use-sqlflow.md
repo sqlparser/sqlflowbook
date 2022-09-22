@@ -4,7 +4,7 @@ description: 提纲 https://github.com/sqlparser/sqlflow_public#how-to-use-sqlfl
 
 # How to use SQLFlow
 
-* Open [the official website](https://gudusoft.com/sqlflow/#/) of the SQLFlow and paste your SQL script or metadata to get a nice clean lineage diagram.
+* Open [the official website](https://sqlflow.gudusoft.com/) of the SQLFlow and paste your SQL script or metadata to get a nice clean lineage diagram.
 * Call the [Restful API](https://github.com/sqlparser/sqlflow\_public/blob/master/api) of the SQLFlow in your own code to get data lineage metadata decoded by the SQLFlow from the SQL script.
 * The [on-premise version](https://github.com/sqlparser/sqlflow\_public/blob/master/install\_sqlflow.md) of SQLflow enables you to use it on your own server to keep the data safer.
 
