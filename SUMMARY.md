@@ -65,8 +65,9 @@
 
 ## Databases
 
-* [Azure](databases/azure.md)
-* [DB2](databases/db2.md)
+* [Database Objects](databases/database-objects/README.md)
+  * [Azure](databases/azure.md)
+  * [DB2](databases/db2.md)
 
 ## SQLFlow-ingester
 
