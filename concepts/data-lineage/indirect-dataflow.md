@@ -191,7 +191,7 @@ where city=1
 
 The above SQL means that the whole record set of the table will be used to calculate the value of SUM() function.
 
-So, two indirect dataflows will be created as below:
+So two indirect dataflows will be created as below:
 
 ```sql
 scott.emp.city -> indirect -> SUM()
