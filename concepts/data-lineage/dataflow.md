@@ -108,7 +108,7 @@ SELECT COUNT() num_emp
 FROM scott.emp
 ```
 
-A table to column dataflow is represented by using a RelationRows pseduo column. This build an indirect dataflow from scott.emp.RelationRows to RS-1.num\_emp
+A table to column dataflow is represented by using a RelationRows pseduo column. An indirect dataflow is built from scott.emp.RelationRows to RS-1.num\_emp
 
 ```sql
 scott.emp.RelationRows -> indirect -> COUNT() -> RS-1.num_emp
