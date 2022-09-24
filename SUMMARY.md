@@ -29,7 +29,7 @@
   * [Dataflow](concepts/data-lineage/dataflow.md)
   * [Direct Dataflow](concepts/data-lineage/direct-dataflow.md)
   * [Indirect Dataflow](concepts/data-lineage/indirect-dataflow.md)
-  * [Dataflow: column used in aggregate function](concepts/data-lineage/dataflow-column-used-in-aggregate-function.md)
+  * [Aggregate function and Dataflow](concepts/data-lineage/aggregate-function-and-dataflow.md)
   * [Dataflow chain](concepts/data-lineage/dataflow-chain.md)
   * [Data lineage format reference](concepts/data-lineage/data-lineage-format-reference.md)
 

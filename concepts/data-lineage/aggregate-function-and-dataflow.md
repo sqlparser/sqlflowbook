@@ -3,13 +3,13 @@ description: >-
   https://github.com/sqlparser/sqlflow_public/blob/master/doc/get-started/dataflow-column-used-in-aggregate-function.md
 ---
 
-# Dataflow: column used in aggregate function
+# Aggregate function and Dataflow
 
-Aggregate function usually takes column as an argument, in this article, we will discuss what kind of dataflow will be created between the column used and the aggregate function.
+Aggregate function usually take column as an argument. in this article, we will discuss what kind of dataflow will be created between the column used and the aggregate function.
 
 ### 1. Aggregate function
 
-All Aggregate function except COUNT(such as SUM, AVERAGE etc...) will create a direct dataflow with the column used as the argument.
+All Aggregate function except COUNT(such as SUM, AVERAGE etc...) will create a direct dataflow with the column used in its argument.
 
 ```sql
 SELECT deptno, SUM(SAL) sal_sum
@@ -27,7 +27,7 @@ scott.emp.SAL -> direct -> SUM()
 
 ### 2. COUNT()
 
-COUN() may take star, any other column names or even empty argument and COUNT() function is a little bit different when creating dataflow.
+COUN() may take star, any other column or even empty argument. COUNT() function is a little bit different when creating dataflow.
 
 If the argument is empty or a star column, no dataflow will be generated between the argument and function.
 
