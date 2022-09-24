@@ -97,18 +97,18 @@ When build dataflow between 2 entities: the source and target entity. They can b
 
 #### 2.1 column to column
 
-This is the most often cases. Both entites in a dataflow are columns.
+This is the most usual case. Both entites in a dataflow are columns.
 
 #### 2.2 table to column
 
-When we say a table impact the value of a column, we usually means the total number of rows of a table impact the value of a column, usually, this column is derived from a COUNT() function.
+It is meant to say the total number of rows of a table impacts the value of a column when we say a table is impacting the value of a column. In most of cases, the column is derived from a COUNT() function.
 
 ```sql
 SELECT COUNT() num_emp
 FROM scott.emp
 ```
 
-A table to column dataflow is represented by using a RelationRows pseduo column. This build an indirect dataflow from scott.emp.RelationRows to RS-1.num\_emp
+A table to column dataflow is represented by using a RelationRows pseduo column. An indirect dataflow is built from scott.emp.RelationRows to RS-1.num\_emp
 
 ```sql
 scott.emp.RelationRows -> indirect -> COUNT() -> RS-1.num_emp
