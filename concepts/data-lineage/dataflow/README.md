@@ -9,7 +9,7 @@ SQLFlow generates data lineage by analyzing SQL queries and stored procedures.
 
 The entity in the data lineage model includes table, column, function, relation and other entities . The combination of the entity and dataflow shows the lineage from one table/column to another.
 
-<figure><img src="../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f303730362f3137313433375f31333966303431655f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f303730362f3137313433375f31333966303431655f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
 
 ### 1. A dataflow unit
 
@@ -26,7 +26,7 @@ This is the dataflow generated for the above SQL query.
 person.persion.FirstName -> direct -> RS-1.FirstName
 ```
 
-<figure><img src="../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230342f3138353135325f63313835393363655f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230342f3138353135325f63313835393363655f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
 
 #### 1.1 Source, target entity
 
@@ -44,7 +44,7 @@ In the above diagram, the data of `RS-1.FirstName` comes from the `Person.FirstN
 
 An arrow is used to represent a direct dataflow in the diagram:
 
-<figure><img src="../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230342f3230323035335f62666538393030665f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230342f3230323035335f62666538393030665f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
 
 **1.2.2 Indirect dataflow**
 
@@ -52,7 +52,7 @@ The indirect dataflow means the data of the target column does not come from the
 
 A dotted line arrow is used to represent an indirect dataflow in the diagram:
 
-<figure><img src="../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230342f3230323334385f33613964316537315f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230342f3230323334385f33613964316537315f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
 
 The source column in the indirect dataflow usually appears in the following clause:
 
@@ -74,7 +74,7 @@ scott.emp.deptno -> indirect -> COUNT()
 scott.emp.deptno -> indirect -> SUM(SAL)
 ```
 
-<figure><img src="../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230362f3137343031325f62613063383366345f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230362f3137343031325f62613063383366345f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
 
 For other indirect dataflows, we will discuss later.
 
@@ -89,7 +89,7 @@ The `join` relationship build a link between 2 or more columns in the join condi
 
 A join relationship will be created after analzying the above SQL. It indicates a join relationship betwee `tbl.key` and `TT.key`.
 
-<figure><img src="../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f303731312f3138353430355f30333663326131615f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f303731312f3138353430355f30333663326131615f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
 
 ### 2. The entity in dataflow
 
@@ -114,7 +114,7 @@ A table to column dataflow is represented by using a RelationRows pseduo column.
 scott.emp.RelationRows -> indirect -> COUNT() -> RS-1.num_emp
 ```
 
-<figure><img src="../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230362f3137343432375f32663830306666345f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230362f3137343432375f32663830306666345f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
 
 #### 2.3 table to table
 
@@ -124,7 +124,7 @@ Sometimes, there will be a dataflow between 2 tables. For example, in an `alter 
 alter table t2 rename to t3;
 ```
 
-<figure><img src="../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230342f3233313730335f64303665336333395f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f313230342f3233313730335f64303665336333395f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
 
 ### 3. Data lineage
 
@@ -150,11 +150,11 @@ AS
 
 The data lineage diagram:
 
-<figure><img src="../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f303731312f3232313333375f65386637333161355f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/68747470733a2f2f696d616765732e67697465652e636f6d2f75706c6f6164732f696d616765732f323032312f303731312f3232313333375f65386637333161355f383133363830392e706e67.webp" alt=""><figcaption></figcaption></figure>
 
 The output also available in XML or JSON format .
 
 ### 4. References
 
-1. xml code used in this article is generated by [DataFlowAnalyzer ](../../introduction/java-library/overview.md#dataflowanalyzer)tools
+1. xml code used in this article is generated by [DataFlowAnalyzer ](../../../introduction/java-library/overview.md#dataflowanalyzer)tools
 2. digram used in this article is generated by the [Gudu SQLFlow Cloud version](https://sqlflow.gudusoft.com/)
