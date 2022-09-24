@@ -101,7 +101,7 @@ This is the most usual case. Both entites in a dataflow are columns.
 
 #### 2.2 table to column
 
-It is meant to say the total number of rows of a table impact the value of a column when we say a table impact the value of a column. In most of cases, the column is derived from a COUNT() function.
+It is meant to say the total number of rows of a table impacts the value of a column when we say a table is impacting the value of a column. In most of cases, the column is derived from a COUNT() function.
 
 ```sql
 SELECT COUNT() num_emp
