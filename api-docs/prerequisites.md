@@ -4,7 +4,7 @@ description: https://github.com/sqlparser/sqlflow_public/tree/master/api#prerequ
 
 # Prerequisites
 
-This article describes how to use the Rest API provided by the SQLFlow to communicate with the SQLFlow server and get the generated metadata and data lineage.
+This article shows how to use the SQLFlow Rest API to communicate with the SQLFlow server and get the generated metadata and data lineage.
 
 In order to use the SQLFlow rest API, you may connect to the [**SQLFlow Cloud server**](https://sqlflow.gudusoft.com) or setup a [**SQLFlow on-premise version**](https://www.gudusoft.com/sqlflow-on-premise-version/) on your owner server.
 
@@ -34,11 +34,11 @@ Please [check here](../introduction/installation/) to see how to install SQLFlow
 
 Always set userId to `gudu|0123456789` and keep `userSecret` empty when connect to the SQLFlow on-premise version.
 
-### Difference of the API calls between SQLFlow Cloud server and SQLFlow on-premise version
+### Difference between using SQLFlow Cloud server and SQLFlow on-premise version
 
 1. TOKEN is not needed in the API calls when connect to the SQLFlow on-premise version
 2. userId alwyas set to `gudu|0123456789` and `userSecret` leave empty when connect to the SQLFlow on-premise version.
 3. The server port is 8081 by default for the SQLFlow on-premise version, and There is no need to specify the port when connect to the SQLFlow Cloud server.
 
-Regarding the server port of the SQLFlow on-premise version, please [check here](https://github.com/sqlparser/sqlflow\_public/tree/master/grabit#1-sqlflow-server) for more information.
+Please [check here](../introduction/installation/linux.md#customize-the-port) if you want read more about the server port of the SQLFlow on-premise version.
 

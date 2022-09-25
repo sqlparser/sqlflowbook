@@ -42,7 +42,7 @@
 
 * [Prerequisites](api-docs/prerequisites.md)
 * [Using the Rest API](api-docs/using-the-rest-api.md)
-* [SQLFlow rest API reference](api-docs/sqlflow-rest-api-reference/README.md)
+* [SQLFlow Rest API reference](api-docs/sqlflow-rest-api-reference/README.md)
   * [Generation Interface](api-docs/sqlflow-rest-api-reference/generation-interface/README.md)
     * [/sqlflow/generation/sqlflow](api-docs/sqlflow-rest-api-reference/generation-interface/sqlflow-generation-sqlflow.md)
     * [/sqlflow/generation/sqlflow/graph](api-docs/sqlflow-rest-api-reference/generation-interface/sqlflow-generation-sqlflow-graph.md)
