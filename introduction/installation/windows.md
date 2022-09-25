@@ -99,7 +99,7 @@ open http://yourIp/api/gspLive\_backend/doc.html?lang=en to see the Restful API 
 
 ### Sqlflow client api call
 
-See [sqlflow client api call](https://github.com/sqlparser/sqlflow\_public/blob/master/api/sqlflow\_api\_full.md#webapi)
+See[ sqlflow client api call](../../api-docs/using-the-rest-api.md)
 
 1. Get userId from gudu\_sqlflow.conf
 

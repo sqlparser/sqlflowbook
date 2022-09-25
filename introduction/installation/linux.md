@@ -157,7 +157,7 @@ note that `8081` in `proxy_pass http://127.0.0.1:8081/` should be the same as gs
 
 ### Customize the port
 
-If you don't want to change the default service port, just ignore this section, otherwise, please act as the following instructions.
+If you don't want to change the default service port you can just ignore this section. Otherwise this section will show you how to customize the port.
 
 #### 1. Default port
 
