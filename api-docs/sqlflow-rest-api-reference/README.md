@@ -5,4 +5,4 @@ All the Restful requests are based on JWT authorization. Before accessing the sq
 There are two parts of interface in SQLFlow Rest API:
 
 * [Generation Interface](generation-interface/)
-* [User Job Interface](user-job-interface/)
+* [User Job Interface](job-interface/)
