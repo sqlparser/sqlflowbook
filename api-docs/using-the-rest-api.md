@@ -71,8 +71,8 @@ curl -X POST "https://api.gudusoft.com/gspLive_backend/sqlflow/generation/sqlflo
 
 ### **4. Submit multiple SQL files and get the data lineage in CSV, JSON, graphml format.**
 
-{% content-ref url="sqlflow-rest-api-reference/user-job-interface/" %}
-[user-job-interface](sqlflow-rest-api-reference/user-job-interface/)
+{% content-ref url="sqlflow-rest-api-reference/job-interface/" %}
+[job-interface](sqlflow-rest-api-reference/job-interface/)
 {% endcontent-ref %}
 
 ### The full reference to the Rest APIs
