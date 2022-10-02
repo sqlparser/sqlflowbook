@@ -25,3 +25,5 @@ Sample resposne:
 	}
 }
 ```
+
+[**Try it out!**](../../swagger-ui.md)****

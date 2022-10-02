@@ -20,3 +20,5 @@ Sample resposne:
     </table>
 </dlineage>
 ```
+
+****[**Try it out!**](../../swagger-ui.md)****
