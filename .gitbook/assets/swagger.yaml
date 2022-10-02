@@ -398,7 +398,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: whether treat the arguments in Count function as a direct Dataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -412,6 +412,7 @@ paths:
           description: OK
           schema:
             type: string
+            example: <?xml version="1.0" encoding="UTF-8" standalone="yes"?> <dlineage> <process id="8" name="Query Insert-1" procedureName="batchQueries" queryHashId="04ebc5aec1a07e1db80b0bc798742875" type="sstinsert" coordinate="[1,1,0],[1,73,0]"/> <table id="4" name="raw_customers" type="table" processIds="8" coordinate="[1,13,0],[1,26,0]"> <column id="5" name="id" coordinate="[1,28,0],[1,30,0]"/> <column id="6" name="first_name" coordinate="[1,32,0],[1,42,0]"/> <column id="7" name="last_name" coordinate="[1,44,0],[1,53,0]"/> </table> </dlineage>
         '201':
           description: Created
         '401':
@@ -557,7 +558,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -689,7 +690,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -820,7 +821,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -886,51 +887,51 @@ paths:
             - dbvvertica
         - name: delimiter
           in: query
-          description: delimiter
+          description: delimiter of the values in CSV, default would be ','
           required: false
           type: string
           default: ','
         - name: hideColumn
           in: query
-          description: hide column
+          description: whether hide column
           required: false
           type: boolean
           default: false
           x-example: false
         - name: ignoreFunction
           in: query
-          description: ignore function
+          description: whether ignore function
           required: false
           type: boolean
           default: false
           x-example: false
         - name: ignoreRecordSet
           in: query
-          description: ignore record set
+          description: whether ignore record set
           required: false
           type: boolean
           default: false
           x-example: false
         - name: jobId
           in: query
-          description: jobId
+          description: job Id
           required: false
           type: string
         - name: normalizeIdentifier
           in: query
-          description: normalizeIdentifier
+          description: whether normalize identifier
           required: false
           type: boolean
           default: true
         - name: showConstantTable
           in: query
-          description: showConstantTable
+          description: whether show constant table
           required: false
           type: boolean
           default: false
         - name: showLinkOnly
           in: query
-          description: show link only
+          description: whether show link only
           required: false
           type: boolean
           default: true
@@ -945,20 +946,20 @@ paths:
           default: fdd
         - name: showTransform
           in: query
-          description: showTransform
+          description: whether show transform
           required: false
           type: boolean
           default: false
         - name: simpleOutput
           in: query
-          description: simple output
+          description: simple output, ignore the intermediate results, defualt is false.
           required: false
           type: boolean
           default: false
           x-example: false
         - name: sqlfile
           in: formData
-          description: sqlfile
+          description: sql file
           required: false
           type: file
         - name: sqltext
@@ -968,7 +969,7 @@ paths:
           type: string
         - name: tableToTable
           in: query
-          description: show table to table relation only
+          description: whether show table to table relation only. please set this to true if you just want to fetch table to table relations.
           required: false
           type: boolean
           default: false
@@ -980,7 +981,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -1178,7 +1179,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -1403,7 +1404,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -1637,7 +1638,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -1805,7 +1806,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -1978,7 +1979,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -2217,7 +2218,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -2348,7 +2349,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -2610,7 +2611,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -2800,7 +2801,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -2991,7 +2992,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -3111,7 +3112,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -3524,7 +3525,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -3646,7 +3647,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -3768,7 +3769,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
@@ -4671,7 +4672,7 @@ paths:
           type: string
         - name: treatArgumentsInCountFunctionAsDirectDataflow
           in: query
-          description: treatArgumentsInCountFunctionAsDirectDataflow
+          description: Whether treat the arguments in COUNT function as direct Dataflow
           required: false
           type: boolean
           default: false
