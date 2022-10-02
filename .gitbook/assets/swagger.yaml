@@ -514,7 +514,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -656,7 +656,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: showRelationType
           required: false
           type: string
           default: fdd
@@ -787,7 +787,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: showRelationType
           required: false
           type: string
           default: fdd
@@ -937,7 +937,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -1142,7 +1142,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -1370,7 +1370,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: showRelationType
           required: false
           type: string
           default: fdd
@@ -1599,7 +1599,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -1767,7 +1767,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -1947,7 +1947,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -2184,7 +2184,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: showRelationType
           required: false
           type: string
           default: fdd
@@ -2315,7 +2315,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: showRelationType
           required: false
           type: string
           default: fdd
@@ -2588,7 +2588,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: showRelationType
           required: false
           type: string
           default: fdd
@@ -2769,7 +2769,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -2965,7 +2965,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -3074,7 +3074,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -3486,7 +3486,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -3608,7 +3608,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -3730,7 +3730,7 @@ paths:
           default: true
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: 'show relation types, allowableValues: fdd, fdr, frd, fddi, join'
           required: false
           type: array
           items:
@@ -4500,7 +4500,7 @@ paths:
       tags:
         - Sqlflow User Job Interface
       summary: submit user job
-      description: Submit a simple sqlflow job. Send the SQL files and get the data lineage result. SQLFlow job supports both of multiple files and zip archive file.
+      description: submit user job
       operationId: submitUserJobUsingPOST
       consumes:
         - multipart/form-data
@@ -4509,22 +4509,22 @@ paths:
       parameters:
         - name: account
           in: query
-          description: account name of the target database
+          description: account
           required: false
           type: string
         - name: csvFormat
           in: query
-          description: Csv Format code, Format of a CSV file. used to represent the CSV in the Catalog, Schema, ObjectType, ObjectName, ObjectCode, Notes each column is the number of columns in the CSV file, does not exist it is 0. check https://www.gudusoft.com/blog/2021/09/05/sqlflow-csv/ for more detail 
+          description: csvFormat
           required: false
           type: string
         - name: database
           in: query
-          description: database metadata in the jdbc string
+          description: database
           required: false
           type: string
         - name: dbvendor
           in: query
-          description: database vendor
+          description: db vendor
           required: true
           type: string
           default: dbvoracle
@@ -4553,59 +4553,48 @@ paths:
             - dbvvertica
         - name: defaultDatabase
           in: query
-          description: default databse when there's no metadata
+          description: defaultDatabase
           required: false
           type: string
         - name: defaultSchema
           in: query
-          description: default schema
+          description: defaultSchema
           required: false
           type: string
         - name: excludedDbsSchemas
           in: query
-          description: This parameters works under the resultset filtered by extractedDbsSchemas. List of databases and schemas to exclude from extraction, separated by commas database1/schema1,database2 or database1.schema1,database2 When parameter database is filled in, this parameter is considered a schema. And support wildcard characters such as database1/*,*/schema,*/*.
+          description: excludedDbsSchemas
           required: false
           type: string
         - name: extractedDbsSchemas
           in: query
-          description: List of databases and schemas to extract, separated by commas, which are to be provided in the format database/schema; Or blank to extract all databases. database1/schema1,database2/schema2,database3 or database1.schema1,database2.schema2,database3 When parameter database is filled in, this parameter is considered a schema. And support wildcard characters such as database1/*,*/schema,*/*.
+          description: extractedDbsSchemas
           required: false
           type: string
         - name: extractedStoredProcedures
           in: query
-          description: A list of stored procedures under the specified database and schema to extract, separated by commas, which are to be provided in the format database.schema.procedureName or schema.procedureName; Or blank to extract all databases, support expression. database1.schema1.procedureName1,database2.schema2.procedureName2,database3.schema3,database4 or database1/schema1/procedureName1,database2/schema2
+          description: extractedStoredProcedures
           required: false
           type: string
         - name: extractedViews
           in: query
-          description: A list of stored views under the specified database and schema to extract, separated by commas, which are to be provided in the format database.schema.viewName or schema.viewName. Or blank to extract all databases, support expression. database1.schema1.procedureName1,database2.schema2.procedureName2,database3.schema3,database4 or database1/schema1/procedureName1,database2/schema2
+          description: extractedViews
           required: false
           type: string
         - name: hostname
           in: query
-          description: db hostname
+          description: hostname
           required: false
           type: string
-        - name: password
-          in: query
-          description: db password
-          required: false
-          type: string
-        - name: port
-          in: query
-          description: db port
-          required: false
-          type: integer
-          format: int32
         - name: ignoreFunction
           in: query
-          description: whether ignore Function
+          description: ignoreFunction
           required: false
           type: boolean
           default: true
         - name: ignoreRecordSet
           in: query
-          description: whether ignore Record Set
+          description: ignoreRecordSet
           required: false
           type: boolean
           default: true
@@ -4616,51 +4605,62 @@ paths:
           type: string
         - name: objectCodeEncloseChar
           in: query
-          description: Character to specify the SQL content， default is \"
+          description: objectCodeEncloseChar
           required: false
           type: string
         - name: objectCodeEscapeChar
           in: query
-          description: specifies the string to escape in case of objectCodeEncloseChar in the SQL, default is \".
+          description: objectCodeEscapeChar
           required: false
           type: string
         - name: onTop
           in: query
-          description: whether job is on top
+          description: onTop
           required: false
           type: boolean
           default: false
         - name: parallel
           in: query
-          description: whether job is parallel
+          description: parallel
           required: false
           type: boolean
           default: false
+        - name: password
+          in: query
+          description: password
+          required: false
+          type: string
+        - name: port
+          in: query
+          description: port
+          required: false
+          type: integer
+          format: int32
         - name: showConstantTable
           in: query
-          description: whether show constant table
+          description: showConstantTable
           required: false
           type: boolean
           default: false
         - name: showRelationType
           in: query
-          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          description: showRelationType
           required: false
           type: string
           default: fdd
         - name: showTransform
           in: query
-          description: whether show Transform
+          description: showTransform
           required: false
           type: boolean
           default: false
         - name: sqlfiles
           in: formData
-          description: sql files
+          description: sqlfiles
           required: false
           type: file
           collectionFormat: multi
-        - name: sql source
+        - name: sqlsource
           in: query
           description: sqlsource
           required: false
@@ -4686,20 +4686,6 @@ paths:
           description: OK
           schema:
             type: string
-            example: 
-              code: 200
-              data:
-                jobId: c359aef4bd9641d697732422debd8055
-                jobName: job1
-                userId: google-oauth2|104002923119102769706
-                dbVendor: dbvmssql
-                dataSource: {}
-                fileNames:
-                  - 1.sql
-                  - 1.zip
-                createTime: '2020-12-15 15:14:39'
-                status: create
-              
         '201':
           description: Created
         '401':

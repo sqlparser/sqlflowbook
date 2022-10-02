@@ -9,9 +9,9 @@ description: >-
 
 <figure><img src="../../../.gitbook/assets/job-types (1).png" alt=""><figcaption></figcaption></figure>
 
-### Simple job rest API
+#### 3. Simple job rest API
 
-**1.** [**Submit a sqlflow job**](./#sqlflow-job-submituserjob)****
+**1. Submit a sqlflow job**
 
 Call this API by sending the SQL files and get the result includes the data lineage. SQLFlow job supports both of multiple files and zip archive file.
 
@@ -24,10 +24,6 @@ Example in `Curl`
 ```
 curl -X POST "https://api.gudusoft.com/gspLive_backend/sqlflow/job/submitUserJob" -H "accept:application/json;charset=utf-8" -H "Content-Type:multipart/form-data" -F "userId=YOUR USER ID HERE" -F "token=YOUR TOKEN HERE" -F "sqlfiles=@FIRST FILE PATH" -F "sqlfiles=@SECOND FILE PATH" -F "dbvendor=dbvmssql" -F "jobName=job1"
 ```
-
-{% swagger src="../../../.gitbook/assets/swagger.yaml" path="/sqlflow/job/submitUserJob" method="post" %}
-[swagger.yaml](../../../.gitbook/assets/swagger.yaml)
-{% endswagger %}
 
 **Note:**
 

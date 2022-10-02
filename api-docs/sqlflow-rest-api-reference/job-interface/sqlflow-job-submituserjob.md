@@ -6,7 +6,7 @@
 [swagger.yaml](../../../.gitbook/assets/swagger.yaml)
 {% endswagger %}
 
-Return data:
+Sample resposne:
 
 ```json
 {
