@@ -1,0 +1,4826 @@
+swagger: '2.0'
+info:
+  description: Gudusoft GspLive Web API
+  version: '1.0'
+  title: Gudusoft GspLive Web API
+  contact:
+    name: gudusoft
+    url: http://www.sqlparser.com/
+host: localhost:8081
+basePath: /gspLive_backend
+tags:
+  - name: User Interface
+    description: User Controller
+  - name: Sqlflow Generation Interface
+    description: Sqlflow Controller
+  - name: Sqlflow User Job Interface
+    description: Sqlflow Job Controller
+paths:
+  /user/generateSecretKey:
+    post:
+      tags:
+        - User Interface
+      summary: generate secret key
+      description: generate secret key
+      operationId: generateSecretKeyUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /user/generateToken:
+    post:
+      tags:
+        - User Interface
+      summary: generate token
+      description:  generate user token for restful api
+      operationId: generateTokenUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: secretKey
+          in: query
+          description: the secretKey of the user
+          required: true
+          type: string
+        - name: userId
+          in: query
+          description: the user id of sqlflow web or client
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/deleteUserSchema:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: delete user schema
+      description: delete user schema
+      operationId: deleteUserSchemaUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: db vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: fileName
+          in: query
+          description: fileName
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/displayUserDbvendorSchema:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: display user dbvendor schema
+      description: display user dbvendor schema
+      operationId: displayUserDbvendorSchemaUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: db vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/displayUserSchemaSummary:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: display user schema summary
+      description: display user schema summary
+      operationId: displayUserSchemaSummaryUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/downstream:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: 'find downstream lineage '
+      operationId: downstreamUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+        - application/json
+      parameters:
+        - in: body
+          name: vo
+          description: vo
+          required: true
+          schema:
+            $ref: '#/definitions/StreamSearch'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: generate sqlflow
+      description: generate sqlflow model
+      operationId: generateSqlflowUsingPOST
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: database vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: same as simpleOutput, but will keep output of the top level select list, default is false.
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: whether normalize the Identifier
+          required: false
+          type: boolean
+          default: true
+        - name: returnFullRelationship
+          in: query
+          description: whether return full data relationship
+          required: false
+          type: boolean
+          default: false
+        - name: showConstantTable
+          in: query
+          description: whether show constant table
+          required: false
+          type: boolean
+          default: false
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: whether show transform
+          required: false
+          type: boolean
+          default: false
+        - name: sqlfile
+          in: formData
+          description: sql file from which to generate the sqlflow model
+          required: false
+          type: file
+        - name: sqltext
+          in: query
+          description: sql text from which to generate the sqlflow model
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: The token is only used when connecting to the SQLFlow Cloud server, is not used when connect to the SQLFlow on-premise version.
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: the user id of sqlflow web or client
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+            example: <?xml version="1.0" encoding="UTF-8" standalone="yes"?> <dlineage> <process id="8" name="Query Insert-1" procedureName="batchQueries" queryHashId="04ebc5aec1a07e1db80b0bc798742875" type="sstinsert" coordinate="[1,1,0],[1,73,0]"/> <table id="4" name="raw_customers" type="table" processIds="8" coordinate="[1,13,0],[1,26,0]"> <column id="5" name="id" coordinate="[1,28,0],[1,30,0]"/> <column id="6" name="first_name" coordinate="[1,32,0],[1,42,0]"/> <column id="7" name="last_name" coordinate="[1,44,0],[1,53,0]"/> </table> </dlineage>
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/download/metadata_lineage:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: download sqlflow metadata and lineage
+      description: download sqlflow metadata and lineage
+      operationId: downloadMetadataLineageUsingPOST
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: db vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: delimiter
+          in: query
+          description: delimiter
+          required: false
+          type: string
+          default: ','
+        - name: hideColumn
+          in: query
+          description: hide column
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreFunction
+          in: query
+          description: ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: sqlfile
+          in: formData
+          description: sqlfile
+          required: false
+          type: file
+        - name: sqltext
+          in: query
+          description: sql text
+          required: false
+          type: string
+        - name: tableToTable
+          in: query
+          description: show table to table relation only
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/downstreamGraph:
+    get:
+      tags:
+        - Sqlflow Generation Interface
+      summary: generate downstream Graph
+      description: generate downstream Graph
+      operationId: generateDownSteamGraphUsingGET
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: dbvendor
+          required: false
+          type: string
+        - name: distance
+          in: query
+          description: distance
+          required: false
+          type: integer
+          format: int32
+        - name: hideColumn
+          in: query
+          description: hideColumn
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreFunction
+          in: query
+          description: ignoreFunction
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignoreRecordSet
+          required: false
+          type: boolean
+          default: false
+        - name: isReturnModel
+          in: query
+          description: isReturnModel
+          required: false
+          type: boolean
+          default: true
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: false
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: showLinkOnly
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: string
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simpleOutput
+          required: false
+          type: boolean
+          default: false
+        - name: tableColumn
+          in: query
+          description: tableColumn
+          required: false
+          type: string
+        - name: tableNamePattern
+          in: query
+          description: tableNamePattern
+          required: false
+          type: string
+          default: .*
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: userId
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: generate downstream Graph
+      description: generate downstream Graph
+      operationId: generateDownSteamGraphUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: dbvendor
+          required: false
+          type: string
+        - name: distance
+          in: query
+          description: distance
+          required: false
+          type: integer
+          format: int32
+        - name: hideColumn
+          in: query
+          description: hideColumn
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreFunction
+          in: query
+          description: ignoreFunction
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignoreRecordSet
+          required: false
+          type: boolean
+          default: false
+        - name: isReturnModel
+          in: query
+          description: isReturnModel
+          required: false
+          type: boolean
+          default: true
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: false
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: showLinkOnly
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: string
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simpleOutput
+          required: false
+          type: boolean
+          default: false
+        - name: tableColumn
+          in: query
+          description: tableColumn
+          required: false
+          type: string
+        - name: tableNamePattern
+          in: query
+          description: tableNamePattern
+          required: false
+          type: string
+          default: .*
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: userId
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/exportLineageAsCsv:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: export sqlflow lineage as csv format
+      description: export sqlflow lineage as csv format
+      operationId: exportLineageAsCsvUsingPOST
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: db vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: delimiter
+          in: query
+          description: delimiter of the values in CSV, default would be ','
+          required: false
+          type: string
+          default: ','
+        - name: hideColumn
+          in: query
+          description: whether hide column
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreFunction
+          in: query
+          description: whether ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: whether ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: jobId
+          in: query
+          description: job Id
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: whether normalize identifier
+          required: false
+          type: boolean
+          default: true
+        - name: showConstantTable
+          in: query
+          description: whether show constant table
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: whether show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: whether show transform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output, ignore the intermediate results, defualt is false.
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: sqlfile
+          in: formData
+          description: sql file
+          required: false
+          type: file
+        - name: sqltext
+          in: query
+          description: sql text
+          required: false
+          type: string
+        - name: tableToTable
+          in: query
+          description: whether show table to table relation only. please set this to true if you just want to fetch table to table relations.
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/getSelectedDbObjectInfo:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: get selected dbobject information
+      description: get selected dbobject information
+      operationId: getSelectedDbObjectInfoUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: coordinates
+          in: query
+          description: the json array string of selected dbobject coordinates
+          required: true
+          type: string
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: true
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/graph:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: generate sqlflow graph
+      description: generate sqlflow graph
+      operationId: generateSqlflowGraphUsingPOST
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: columnLevel
+          in: query
+          description: columnLevel
+          required: false
+          type: string
+        - name: dbvendor
+          in: query
+          description: db vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: hideColumn
+          in: query
+          description: hide column
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreFunction
+          in: query
+          description: ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: sqlfile
+          in: formData
+          description: sqlfile
+          required: false
+          type: file
+        - name: sqltext
+          in: query
+          description: sql text
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/graph/table_level_lineage:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: generate sqlflow table level lineage graph
+      description: generate sqlflow table level lineage graph
+      operationId: generateSqlflowTableLevelLineageGraphUsingPOST
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: db vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: ignoreSelfLineage
+          in: query
+          description: ignoreSelfLineage
+          required: false
+          type: boolean
+          default: true
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: sqlfile
+          in: formData
+          description: sqlfile
+          required: false
+          type: file
+        - name: sqltext
+          in: query
+          description: sql text
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/leftMostSourceTableGraph:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: generate left-most source table graph
+      description: generate left-most source table graph
+      operationId: generateLeftMostSourceTableGraphUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: columnLevel
+          in: query
+          description: columnLevel
+          required: false
+          type: string
+        - name: dbvendor
+          in: query
+          description: dbvendor
+          required: true
+          type: string
+        - name: hideColumn
+          in: query
+          description: hideColumn
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreFunction
+          in: query
+          description: ignoreFunction
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignoreRecordSet
+          required: false
+          type: boolean
+          default: false
+        - name: isReturnModel
+          in: query
+          description: isReturnModel
+          required: false
+          type: boolean
+          default: true
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: true
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: showLinkOnly
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: string
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simpleOutput
+          required: false
+          type: boolean
+          default: false
+        - name: tableColumn
+          in: query
+          description: tableColumn
+          required: false
+          type: string
+        - name: tableNamePattern
+          in: query
+          description: tableNamePattern
+          required: false
+          type: string
+          default: .*
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/listTableColumns:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: list selected table columns
+      description: list selected table columns
+      operationId: generateSelectedDbObjectGraphUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: database
+          in: query
+          description: database
+          required: false
+          type: string
+        - name: dbvendor
+          in: query
+          description: dbvendor
+          required: true
+          type: string
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: schema
+          in: query
+          description: schema
+          required: false
+          type: string
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: true
+          type: string
+        - name: table
+          in: query
+          description: table
+          required: true
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/selected_dbobject/download/metadata_lineage:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: download selected dbobject metadata and lineage
+      description: download selected dbobject metadata and lineage
+      operationId: downloadSelectedDbObjectMetadataLineageUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: column
+          in: query
+          description: column
+          required: false
+          type: string
+        - name: database
+          in: query
+          description: database
+          required: false
+          type: string
+        - name: dbvendor
+          in: query
+          description: db vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: delimiter
+          in: query
+          description: delimiter
+          required: false
+          type: string
+          default: ','
+        - name: ignoreFunction
+          in: query
+          description: ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: schema
+          in: query
+          description: schema
+          required: false
+          type: string
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: false
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: table
+          in: query
+          description: table
+          required: false
+          type: string
+        - name: tableToTable
+          in: query
+          description: show table to table relation only
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/selected_dbobject/exportLineageAsCsv:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: export selected dbobject lineage as csv format
+      description: export selected dbobject lineage as csv format
+      operationId: exportSelectedDbObjectLineageAsCsvUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: column
+          in: query
+          description: column
+          required: false
+          type: string
+        - name: database
+          in: query
+          description: database
+          required: false
+          type: string
+        - name: dbvendor
+          in: query
+          description: db vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: delimiter
+          in: query
+          description: delimiter
+          required: false
+          type: string
+          default: ','
+        - name: ignoreFunction
+          in: query
+          description: ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: schema
+          in: query
+          description: schema
+          required: false
+          type: string
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: false
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: table
+          in: query
+          description: table
+          required: false
+          type: string
+        - name: tableToTable
+          in: query
+          description: show table to table relation only
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/selectedgraph:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: generate selected dbobject graph
+      description: generate selected dbobject graph
+      operationId: generateSelectedDbObjectGraphUsingPOST_1
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: column
+          in: query
+          description: column
+          required: false
+          type: string
+        - name: columnLevel
+          in: query
+          description: columnLevel
+          required: false
+          type: string
+        - name: database
+          in: query
+          description: database
+          required: false
+          type: string
+        - name: dbvendor
+          in: query
+          description: db vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: hideColumn
+          in: query
+          description: hide column
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreFunction
+          in: query
+          description: ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: isReturnModel
+          in: query
+          description: whether to return model
+          required: false
+          type: boolean
+          default: true
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: schema
+          in: query
+          description: schema
+          required: false
+          type: string
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: false
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: table
+          in: query
+          description: table
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/selectedgraph/table_level_lineage:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: generate selected table level lineage graph
+      description: generate selected table level lineage graph
+      operationId: generateSelectedTableLevelLineageGraphUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: column
+          in: query
+          description: column
+          required: false
+          type: string
+        - name: database
+          in: query
+          description: database
+          required: false
+          type: string
+        - name: dbvendor
+          in: query
+          description: db vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: ignoreSelfLineage
+          in: query
+          description: ignoreSelfLineage
+          required: false
+          type: boolean
+          default: true
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: schema
+          in: query
+          description: schema
+          required: false
+          type: string
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: false
+          type: string
+        - name: table
+          in: query
+          description: table
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/sqlflow/upstreamGraph:
+    get:
+      tags:
+        - Sqlflow Generation Interface
+      summary: generate upstream Graph
+      description: generate upstream Graph
+      operationId: generateUpSteamGraphUsingGET
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: dbvendor
+          required: false
+          type: string
+        - name: distance
+          in: query
+          description: distance
+          required: false
+          type: integer
+          format: int32
+        - name: hideColumn
+          in: query
+          description: hideColumn
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreFunction
+          in: query
+          description: ignoreFunction
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignoreRecordSet
+          required: false
+          type: boolean
+          default: false
+        - name: isReturnModel
+          in: query
+          description: isReturnModel
+          required: false
+          type: boolean
+          default: true
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: false
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: showLinkOnly
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: string
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simpleOutput
+          required: false
+          type: boolean
+          default: false
+        - name: tableColumn
+          in: query
+          description: tableColumn
+          required: false
+          type: string
+        - name: tableNamePattern
+          in: query
+          description: tableNamePattern
+          required: false
+          type: string
+          default: .*
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: userId
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: generate upstream Graph
+      description: generate upstream Graph
+      operationId: generateUpSteamGraphUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: dbvendor
+          required: false
+          type: string
+        - name: distance
+          in: query
+          description: distance
+          required: false
+          type: integer
+          format: int32
+        - name: hideColumn
+          in: query
+          description: hideColumn
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreFunction
+          in: query
+          description: ignoreFunction
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignoreRecordSet
+          required: false
+          type: boolean
+          default: false
+        - name: isReturnModel
+          in: query
+          description: isReturnModel
+          required: false
+          type: boolean
+          default: true
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: sessionId
+          in: query
+          description: sessionId
+          required: false
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: showLinkOnly
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: string
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simpleOutput
+          required: false
+          type: boolean
+          default: false
+        - name: tableColumn
+          in: query
+          description: tableColumn
+          required: false
+          type: string
+        - name: tableNamePattern
+          in: query
+          description: tableNamePattern
+          required: false
+          type: string
+          default: .*
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: userId
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/submitUserSchema:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: submit user schema
+      description: submit user schema
+      operationId: submitUserSchemaUsingPOST
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: db vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: sqlfiles
+          in: formData
+          description: sqlfiles
+          required: false
+          type: file
+          collectionFormat: multi
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/generation/upstream:
+    post:
+      tags:
+        - Sqlflow Generation Interface
+      summary: 'find upstream lineage '
+      operationId: upstreamUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+        - application/json
+      parameters:
+        - in: body
+          name: vo
+          description: vo
+          required: true
+          schema:
+            $ref: '#/definitions/StreamSearch'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            additionalProperties:
+              type: object
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/deleteUserJob:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: delete user job
+      description: delete user job
+      operationId: deleteUserJobUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: jobId
+          in: query
+          description: job id
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/displayMetadataQueryGraph:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: display user job database metadata query graph
+      description: display user job database metadata query graph
+      operationId: displayMetadataQueryGraphUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: database
+          in: query
+          description: database
+          required: true
+          type: string
+        - name: hideColumn
+          in: query
+          description: hideColumn
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreFunction
+          in: query
+          description: ignoreFunction
+          required: false
+          type: boolean
+          default: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignoreRecordSet
+          required: false
+          type: boolean
+          default: false
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: name
+          in: query
+          description: name
+          required: true
+          type: string
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: schema
+          in: query
+          description: schema
+          required: true
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: showLinkOnly
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: string
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simpleOutput
+          required: false
+          type: boolean
+          default: false
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/displayMetadataQuerySource:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: display user job database metadata query source
+      description: display user job database metadata query source
+      operationId: displayMetadataQuerySourceUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: database
+          in: query
+          description: database
+          required: true
+          type: string
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: name
+          in: query
+          description: name
+          required: true
+          type: string
+        - name: schema
+          in: query
+          description: schema
+          required: true
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/displayUserJobGraph:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: display user job graph
+      description: display user job graph
+      operationId: displayUserJobGraphUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: column
+          in: query
+          description: column
+          required: false
+          type: string
+        - name: containGraphML
+          in: query
+          description: containGraphML
+          required: false
+          type: boolean
+          default: false
+        - name: database
+          in: query
+          description: database
+          required: false
+          type: string
+        - name: hideColumn
+          in: query
+          description: hide column
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreFunction
+          in: query
+          description: ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: isReturnModel
+          in: query
+          description: whether to return model
+          required: false
+          type: boolean
+          default: true
+        - name: jobId
+          in: query
+          description: job id
+          required: false
+          type: string
+        - name: schema
+          in: query
+          description: schema
+          required: false
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: table
+          in: query
+          description: table
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/displayUserJobSummary:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: display specify user job summary
+      description: display specify user job summary
+      operationId: displayUserJobSummaryUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: jobId
+          in: query
+          description: job id
+          required: false
+          type: string
+        - name: jobName
+          in: query
+          description: job name
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/displayUserJobsSummary:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: display user jobs summary
+      description: display user jobs summary
+      operationId: displayUserJobsSummaryUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/displayUserLatestJobGraph:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: display user latest job graph
+      description: display user latest job graph
+      operationId: displayUserLatestJobGraphUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: containGraphML
+          in: query
+          description: containGraphML
+          required: false
+          type: boolean
+          default: false
+        - name: hideColumn
+          in: query
+          description: hide column
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreFunction
+          in: query
+          description: ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: isReturnModel
+          in: query
+          description: whether to return model
+          required: false
+          type: boolean
+          default: true
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/displayUserLatestJobLeftMostTable:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: display user latest job left-most source table graph
+      description: display user latest job left-most source table graph
+      operationId: displayUserLatestJobLeftMostTableUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: hideColumn
+          in: query
+          description: hide column
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreFunction
+          in: query
+          description: ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: isReturnModel
+          in: query
+          description: whether to return model
+          required: false
+          type: boolean
+          default: true
+        - name: normalizeIdentifier
+          in: query
+          description: normalizeIdentifier
+          required: false
+          type: boolean
+          default: true
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: tableColumn
+          in: query
+          description: tableColumn
+          required: false
+          type: string
+        - name: tableNamePattern
+          in: query
+          description: tableNamePattern
+          required: false
+          type: string
+          default: .*
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/displayUserLatestJobTableLevelLineage:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: display user latest job table level lineage
+      description: display user latest job table level lineage
+      operationId: displayUserLatestJobTableLevelLineageUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: ignoreSelfLineage
+          in: query
+          description: ignoreSelfLineage
+          required: false
+          type: boolean
+          default: true
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/download/parquet:
+    get:
+      tags:
+        - Sqlflow User Job Interface
+      summary: download parquet file
+      description: download parquet file
+      operationId: downloadParquetUsingGET
+      produces:
+        - application/json;charset=utf-8
+        - application/octet-stream
+      parameters:
+        - name: batchId
+          in: query
+          description: batchId
+          required: true
+          type: string
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: jobName
+          in: query
+          description: jobName
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/download/subJobFile:
+    get:
+      tags:
+        - Sqlflow User Job Interface
+      summary: download subjob file
+      description: download subjob file
+      operationId: downloadSubJobFileUsingGET
+      produces:
+        - application/json;charset=utf-8
+        - application/octet-stream
+      parameters:
+        - name: batchId
+          in: query
+          description: batchId
+          required: true
+          type: string
+        - name: fileName
+          in: query
+          description: fileName
+          required: true
+          type: string
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: jobName
+          in: query
+          description: jobName
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/exportDatabaseMetadata:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: export user job database metadata
+      description: export user job database metadata
+      operationId: exportDatabaseMetadataUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: displayQuerySource
+          in: query
+          description: display query source
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: jobId
+          in: query
+          description: job id
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/exportFullLineageAsCsv:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: export sqlflow full lineage as csv format
+      description: export full sqlflow lineage as csv format
+      operationId: exportFullLineageAsCsvUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: delimiter
+          in: query
+          description: delimiter
+          required: false
+          type: string
+          default: ','
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: tableToTable
+          in: query
+          description: tableToTable
+          required: false
+          type: boolean
+          default: false
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/exportFullLineageAsJson:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: export sqlflow full lineage as json format
+      description: export full sqlflow lineage as csv format
+      operationId: exportFullLineageAsJsonUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/exportLineageAsCsv:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: export sqlflow lineage as csv format
+      description: export sqlflow lineage as csv format
+      operationId: exportLineageAsCsvUsingPOST_1
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: column
+          in: query
+          description: column
+          required: false
+          type: string
+        - name: database
+          in: query
+          description: database
+          required: false
+          type: string
+        - name: delimiter
+          in: query
+          description: delimiter
+          required: false
+          type: string
+          default: ','
+        - name: ignoreFunction
+          in: query
+          description: ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: jobId
+          in: query
+          description: job id
+          required: false
+          type: string
+        - name: schema
+          in: query
+          description: schema
+          required: false
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: table
+          in: query
+          description: table
+          required: false
+          type: string
+        - name: tableToTable
+          in: query
+          description: show table to table relation only
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/exportLineageAsGraphml:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: export sqlflow lineage as graphml format
+      description: export sqlflow lineage as graphml format
+      operationId: exportLineageAsGraphMLUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: column
+          in: query
+          description: column
+          required: false
+          type: string
+        - name: database
+          in: query
+          description: database
+          required: false
+          type: string
+        - name: ignoreFunction
+          in: query
+          description: ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: jobId
+          in: query
+          description: job id
+          required: false
+          type: string
+        - name: schema
+          in: query
+          description: schema
+          required: false
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: table
+          in: query
+          description: table
+          required: false
+          type: string
+        - name: tableToTable
+          in: query
+          description: show table to table relation only
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/exportLineageAsJson:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: export sqlflow lineage as json format
+      description: export sqlflow lineage as json format
+      operationId: exportLineageAsJsonUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: column
+          in: query
+          description: column
+          required: false
+          type: string
+        - name: database
+          in: query
+          description: database
+          required: false
+          type: string
+        - name: ignoreFunction
+          in: query
+          description: ignore function
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: ignoreRecordSet
+          in: query
+          description: ignore record set
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: jobId
+          in: query
+          description: job id
+          required: false
+          type: string
+        - name: schema
+          in: query
+          description: schema
+          required: false
+          type: string
+        - name: showConstantTable
+          in: query
+          description: showConstantTable
+          required: false
+          type: boolean
+          default: false
+        - name: showLinkOnly
+          in: query
+          description: show link only
+          required: false
+          type: boolean
+          default: true
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+          default: fdd
+        - name: showTransform
+          in: query
+          description: showTransform
+          required: false
+          type: boolean
+          default: false
+        - name: simpleOutput
+          in: query
+          description: simple output
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: table
+          in: query
+          description: table
+          required: false
+          type: string
+        - name: tableToTable
+          in: query
+          description: show table to table relation only
+          required: false
+          type: boolean
+          default: false
+          x-example: false
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/exportMetadata:
+    get:
+      tags:
+        - Sqlflow User Job Interface
+      summary: export metadata.json
+      description: export metadata.json
+      operationId: exportMetadataUsingGET
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: jobId
+          in: query
+          description: job id
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/fetchLeftMostTableLineageSQL:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: fetch left most table lineage sql
+      description: fetch left most table lineage sql
+      operationId: fetchLeftMostTableLineageSQLUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: jobName
+          in: query
+          description: jobName
+          required: false
+          type: string
+        - name: sourceColumn
+          in: query
+          description: sourceColumn
+          required: false
+          type: string
+        - name: sourceTable
+          in: query
+          description: sourceTable
+          required: false
+          type: string
+        - name: targetColumn
+          in: query
+          description: targetColumn
+          required: false
+          type: string
+        - name: targetTable
+          in: query
+          description: targetTable
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/generate/parquet:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: generate parquet file
+      description: generate parquet file
+      operationId: generateParquetUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: batchId
+          in: query
+          description: batchId
+          required: true
+          type: string
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: jobName
+          in: query
+          description: jobName
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/graph/summary:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: generate sqlflow job summary
+      description: generate sqlflow job summary
+      operationId: generateSqlflowGraphSummaryUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: dbvendor
+          in: query
+          description: dbvendor
+          required: true
+          type: string
+        - name: jobId
+          in: query
+          description: jobId
+          required: true
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/leftMostSourceTable:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: generate left-most source tables
+      description: generate left-most source tables
+      operationId: leftMostSourceTableUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: jobId
+          in: query
+          description: job id
+          required: false
+          type: string
+        - name: tableColumn
+          in: query
+          description: target table column
+          required: false
+          type: string
+        - name: tableNamePattern
+          in: query
+          description: target table name, supports regex expression
+          required: false
+          type: string
+        - name: tag
+          in: query
+          description: tag
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/leftMostSourceTableAsCsv:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: generate left-most source tables as csv format
+      description: generate left-most source tables
+      operationId: leftMostSourceTableAsCsvUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - text/plain;charset=utf-8
+      parameters:
+        - name: delimiter
+          in: query
+          description: delimiter
+          required: false
+          type: string
+          default: ','
+        - name: jobId
+          in: query
+          description: job id
+          required: false
+          type: string
+        - name: tableColumn
+          in: query
+          description: target table column
+          required: false
+          type: string
+        - name: tableNamePattern
+          in: query
+          description: target table name, supports regex expression
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/listScheduleJobs:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: list schedule jobs
+      description: list schedule jobs
+      operationId: listScheduleJobsUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/pauseScheduleJob:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: pause schedule job
+      description: pause schedule job
+      operationId: pauseScheduleJobUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: jobId
+          in: query
+          description: jobId
+          required: true
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/rerunJob:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: re-run job
+      description: re-run job
+      operationId: rerunJobUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: jobName
+          in: query
+          description: jobName
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/resumeScheduleJob:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: resume schedule job
+      description: resume schedule job
+      operationId: resumeScheduleJobUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: jobId
+          in: query
+          description: jobId
+          required: true
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/setJobOnTop:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: set user job on top
+      description: set user job on top
+      operationId: setJobOnTopUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: jobId
+          in: query
+          description: job id
+          required: true
+          type: string
+        - name: onTop
+          in: query
+          description: onTop
+          required: true
+          type: boolean
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/submitPersistJob:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: submit persist or incremental job
+      description: submit persist or incremental job
+      operationId: submitPersistJobUsingPOST
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: account
+          in: query
+          description: account
+          required: false
+          type: string
+        - name: cronExpression
+          in: query
+          description: cronExpression
+          required: false
+          type: string
+        - name: database
+          in: query
+          description: database
+          required: false
+          type: string
+        - name: dbvendor
+          in: query
+          description: dbvendor
+          required: true
+          type: string
+        - name: defaultDatabase
+          in: query
+          description: defaultDatabase
+          required: false
+          type: string
+        - name: defaultSchema
+          in: query
+          description: defaultSchema
+          required: false
+          type: string
+        - name: extra
+          in: query
+          description: extra
+          required: false
+          type: string
+        - name: firstSubmit
+          in: query
+          description: firstSubmit
+          required: false
+          type: boolean
+          default: false
+        - name: hostname
+          in: query
+          description: hostname
+          required: false
+          type: string
+        - name: incremental
+          in: query
+          description: incremental
+          required: false
+          type: boolean
+          default: true
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: jobName
+          in: query
+          description: jobName
+          required: false
+          type: string
+        - name: onTop
+          in: query
+          description: onTop
+          required: false
+          type: boolean
+          default: false
+        - name: password
+          in: query
+          description: password
+          required: false
+          type: string
+        - name: port
+          in: query
+          description: port
+          required: false
+          type: integer
+          format: int32
+        - name: schedulable
+          in: query
+          description: schedulable
+          required: false
+          type: boolean
+          default: false
+        - name: sqlfiles
+          in: formData
+          description: sqlfiles
+          required: false
+          type: file
+          collectionFormat: multi
+        - name: sqlsource
+          in: query
+          description: sqlsource
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/submitTableAffectSQLJob:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: submit table affect sql job
+      description: submit a job of fetching source table affect sql
+      operationId: submitTableAffectSQLJobUsingPOST
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: columnLevel
+          in: query
+          description: columnLevel
+          required: false
+          type: boolean
+          default: false
+        - name: jobId
+          in: query
+          description: jobId
+          required: false
+          type: string
+        - name: jobName
+          in: query
+          description: jobName
+          required: false
+          type: string
+        - name: sqlfiles
+          in: formData
+          description: sqlfiles
+          required: false
+          type: file
+          collectionFormat: multi
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/submitUserJob:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: submit user job
+      description: Submit a simple sqlflow job. Send the SQL files and get the data lineage result. SQLFlow job supports both of multiple files and zip archive file.
+      operationId: submitUserJobUsingPOST
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: account
+          in: query
+          description: account name of the target database
+          required: false
+          type: string
+        - name: csvFormat
+          in: query
+          description: Csv Format code, Format of a CSV file. used to represent the CSV in the Catalog, Schema, ObjectType, ObjectName, ObjectCode, Notes each column is the number of columns in the CSV file, does not exist it is 0. check https://www.gudusoft.com/blog/2021/09/05/sqlflow-csv/ for more detail 
+          required: false
+          type: string
+        - name: database
+          in: query
+          description: database metadata in the jdbc string
+          required: false
+          type: string
+        - name: dbvendor
+          in: query
+          description: database vendor
+          required: true
+          type: string
+          default: dbvoracle
+          enum:
+            - dbvazuresql
+            - dbvbigquery
+            - dbvcouchbase
+            - dbvdb2
+            - dbvgreenplum
+            - dbvhana
+            - dbvhive
+            - dbvimpala
+            - dbvinformix
+            - dbvmdx
+            - dbvmysql
+            - dbvnetezza
+            - dbvopenedge
+            - dbvoracle
+            - dbvpostgresql
+            - dbvredshift
+            - dbvsnowflake
+            - dbvmssql
+            - dbvsparksql
+            - dbvsybase
+            - dbvteradata
+            - dbvvertica
+        - name: defaultDatabase
+          in: query
+          description: default databse when there's no metadata
+          required: false
+          type: string
+        - name: defaultSchema
+          in: query
+          description: default schema
+          required: false
+          type: string
+        - name: excludedDbsSchemas
+          in: query
+          description: This parameters works under the resultset filtered by extractedDbsSchemas. List of databases and schemas to exclude from extraction, separated by commas database1/schema1,database2 or database1.schema1,database2 When parameter database is filled in, this parameter is considered a schema. And support wildcard characters such as database1/*,*/schema,*/*.
+          required: false
+          type: string
+        - name: extractedDbsSchemas
+          in: query
+          description: List of databases and schemas to extract, separated by commas, which are to be provided in the format database/schema; Or blank to extract all databases. database1/schema1,database2/schema2,database3 or database1.schema1,database2.schema2,database3 When parameter database is filled in, this parameter is considered a schema. And support wildcard characters such as database1/*,*/schema,*/*.
+          required: false
+          type: string
+        - name: extractedStoredProcedures
+          in: query
+          description: A list of stored procedures under the specified database and schema to extract, separated by commas, which are to be provided in the format database.schema.procedureName or schema.procedureName; Or blank to extract all databases, support expression. database1.schema1.procedureName1,database2.schema2.procedureName2,database3.schema3,database4 or database1/schema1/procedureName1,database2/schema2
+          required: false
+          type: string
+        - name: extractedViews
+          in: query
+          description: A list of stored views under the specified database and schema to extract, separated by commas, which are to be provided in the format database.schema.viewName or schema.viewName. Or blank to extract all databases, support expression. database1.schema1.procedureName1,database2.schema2.procedureName2,database3.schema3,database4 or database1/schema1/procedureName1,database2/schema2
+          required: false
+          type: string
+        - name: hostname
+          in: query
+          description: db hostname
+          required: false
+          type: string
+        - name: password
+          in: query
+          description: db password
+          required: false
+          type: string
+        - name: port
+          in: query
+          description: db port
+          required: false
+          type: integer
+          format: int32
+        - name: ignoreFunction
+          in: query
+          description: whether ignore Function
+          required: false
+          type: boolean
+          default: true
+        - name: ignoreRecordSet
+          in: query
+          description: whether ignore Record Set
+          required: false
+          type: boolean
+          default: true
+        - name: jobName
+          in: query
+          description: jobName
+          required: true
+          type: string
+        - name: objectCodeEncloseChar
+          in: query
+          description: Character to specify the SQL content， default is \"
+          required: false
+          type: string
+        - name: objectCodeEscapeChar
+          in: query
+          description: specifies the string to escape in case of objectCodeEncloseChar in the SQL, default is \".
+          required: false
+          type: string
+        - name: onTop
+          in: query
+          description: whether job is on top
+          required: false
+          type: boolean
+          default: false
+        - name: parallel
+          in: query
+          description: whether job is parallel
+          required: false
+          type: boolean
+          default: false
+        - name: showConstantTable
+          in: query
+          description: whether show constant table
+          required: false
+          type: boolean
+          default: false
+        - name: showRelationType
+          in: query
+          description: show relation type, required false, default value is 'fdd', multiple values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value of target column from source column, 'frd' the recordset count of target column which is affect by value of source column, 'fdr' value of target column which is affected by the recordset count of source column, 'join' combines rows from two or more tables, based on a related column between them
+          required: false
+          type: string
+          default: fdd
+        - name: showTransform
+          in: query
+          description: whether show Transform
+          required: false
+          type: boolean
+          default: false
+        - name: sqlfiles
+          in: formData
+          description: sql files
+          required: false
+          type: file
+          collectionFormat: multi
+        - name: sql source
+          in: query
+          description: sqlsource
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: treatArgumentsInCountFunctionAsDirectDataflow
+          in: query
+          description: Whether treat the arguments in COUNT function as direct Dataflow
+          required: false
+          type: boolean
+          default: false
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+            example: 
+              code: 200
+              data:
+                jobId: c359aef4bd9641d697732422debd8055
+                jobName: job1
+                userId: google-oauth2|104002923119102769706
+                dbVendor: dbvmssql
+                dataSource: {}
+                fileNames:
+                  - 1.sql
+                  - 1.zip
+                createTime: '2020-12-15 15:14:39'
+                status: create
+              
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/updateScheduleJob:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: update schedule job
+      description: resume schedule job
+      operationId: updateScheduleJobUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: cronExpression
+          in: query
+          description: cronExpression
+          required: true
+          type: string
+        - name: jobId
+          in: query
+          description: jobId
+          required: true
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: userId
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+  /sqlflow/job/updateUserJobGraphCache:
+    post:
+      tags:
+        - Sqlflow User Job Interface
+      summary: update user job graph cache
+      description: update user job graph cache
+      operationId: updateUserJobGraphCacheUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - name: jobId
+          in: query
+          description: job id
+          required: false
+          type: string
+        - name: token
+          in: query
+          description: token
+          required: false
+          type: string
+        - name: userId
+          in: query
+          description: user id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: false
+securityDefinitions:
+  Authorization:
+    type: apiKey
+    name: Authorization
+    in: header
+definitions:
+  StreamSearch:
+    type: object
+    required:
+      - tablename
+    properties:
+      columnname:
+        type: string
+        description: columnname
+      jobid:
+        type: string
+        description: jobid
+      level:
+        type: integer
+        format: int32
+        description: level
+      tablename:
+        type: string
+        description: tablename
+      userid:
+        type: string
+        description: userid
+    title: StreamSearch
