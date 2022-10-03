@@ -2619,9 +2619,10 @@ paths:
             schema:
               properties:
                 sqlfiles:
-                  type: string
-                  description: sqlfiles
-                  format: binary
+                  type: array
+                  items:
+                    type: string
+                    format: binary
       responses:
         200:
           description: OK
@@ -4778,9 +4779,10 @@ paths:
             schema:
               properties:
                 sqlfiles:
-                  type: string
-                  description: sqlfiles
-                  format: binary
+                  type: array
+                  items:
+                    type: string
+                    format: binary
       responses:
         200:
           description: OK
@@ -4842,9 +4844,10 @@ paths:
             schema:
               properties:
                 sqlfiles:
-                  type: string
-                  description: sqlfiles
-                  format: binary
+                  type: array
+                  items:
+                    type: string
+                    format: binary
       responses:
         200:
           description: OK
@@ -5078,9 +5081,10 @@ paths:
             schema:
               properties:
                 sqlfiles:
-                  type: string
-                  description: sql files
-                  format: binary
+                  type: array
+                  items:
+                    type: string
+                    format: binary
       responses:
         200:
           description: OK
