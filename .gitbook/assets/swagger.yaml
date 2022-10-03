@@ -58,15 +58,15 @@ paths:
       description: generate user token for restful api
       operationId: generateTokenUsingPOST
       parameters:
-      - name: secretKey
-        in: query
-        description: the secretKey of the user
-        required: true
-        schema:
-          type: string
       - name: userId
         in: query
         description: the user id of sqlflow web or client
+        required: true
+        schema:
+          type: string
+      - name: secretKey
+        in: query
+        description: the secretKey of the user
         required: true
         schema:
           type: string
