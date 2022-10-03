@@ -7,14 +7,14 @@ info:
     url: http://www.sqlparser.com/
   version: "1.0"
 servers:
-- url: //localhost:8081/gspLive_backend
+- url: /gspLive_backend
 tags:
 - name: User Interface
-  description: User Controller
+  description: User Apis
 - name: Sqlflow Generation Interface
-  description: Sqlflow Controller
-- name: Sqlflow User Job Interface
-  description: Sqlflow Job Controller
+  description: Sqlflow Generation Apis
+- name: Job Interface
+  description: Job Apis
 paths:
   /user/generateSecretKey:
     post:
