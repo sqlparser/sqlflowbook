@@ -440,6 +440,7 @@ paths:
         content:
           multipart/form-data:
             schema:
+              type: object
               properties:
                 sqlfile:
                   type: string
@@ -670,6 +671,7 @@ paths:
         content:
           multipart/form-data:
             schema:
+              type: object
               properties:
                 sqlfile:
                   type: string
@@ -1125,6 +1127,7 @@ paths:
         content:
           multipart/form-data:
             schema:
+              type: object
               properties:
                 sqlfile:
                   type: string
@@ -1342,6 +1345,7 @@ paths:
         content:
           multipart/form-data:
             schema:
+              type: object
               properties:
                 sqlfile:
                   type: string
@@ -1442,6 +1446,7 @@ paths:
         content:
           multipart/form-data:
             schema:
+              type: object
               properties:
                 sqlfile:
                   type: string
@@ -2666,6 +2671,7 @@ paths:
         content:
           multipart/form-data:
             schema:
+              type: object
               properties:
                 sqlfiles:
                   type: array
@@ -3116,8 +3122,8 @@ paths:
     post:
       tags:
       - Sqlflow User Job Interface
-      summary: display specify user job summary
-      description: display specify user job summary
+      summary: display the specific user job summary
+      description: display the specific user job summary
       operationId: displayUserJobSummaryUsingPOST
       parameters:
       - name: jobId
@@ -3137,7 +3143,7 @@ paths:
           type: string
       - name: userId
         in: query
-        description: user id
+        description: the user id of sqlflow web or client
         required: true
         schema:
           type: string
@@ -3148,6 +3154,37 @@ paths:
             application/json;charset=utf-8:
               schema:
                 type: string
+                example:
+                  code: 200
+                  data:
+                    jobId: 939fdbbaf52b45139b86c0761d6036b0
+                    jobName: yuanhao1
+                    userId: auth0|6326bxxxx
+                    userEmail: xxx@xxx.com
+                    dbVendor: dbvoracle
+                    showRelationType: fdd
+                    ignoreRecordSet: true
+                    dataflowOfAggregateFunction: direct
+                    showConstantTable: false
+                    showTransform: false
+                    ignoreFunction: true
+                    fileNames:
+                      - test.sql
+                    createTime: '2022-10-04 10:45:04'
+                    status: success
+                    sessionId: 24a4455c71fa35c0393d5747f9c23a9d99f32fa4c130a6b8da8d6a7db8d157ae_1664880305725
+                    executeTime: 0min 1sec
+                    executeTimeMillis: 0
+                    onTop: false
+                    parallel: false
+                    persist: false
+                    incremental: false
+                    schedulable: false
+                    cancelSchedule: false
+                    lastExecuteTime: '2022-10-04 10:45:05'
+                    subJobs: []
+                    version: 5.2.0
+                  
         201:
           description: Created
           content: {}
@@ -3165,8 +3202,8 @@ paths:
     post:
       tags:
       - Sqlflow User Job Interface
-      summary: display user jobs summary
-      description: display user jobs summary
+      summary: Get all jobs (include history jobs) status and summary
+      description: Get all jobs (include history jobs) status and summary
       operationId: displayUserJobsSummaryUsingPOST
       parameters:
       - name: token
@@ -3187,6 +3224,69 @@ paths:
             application/json;charset=utf-8:
               schema:
                 type: string
+                example:
+                  code: 200
+                  data:
+                    total: 2
+                    success: 2
+                    partialSuccess: 0
+                    fail: 0
+                    jobIds:
+                      - 939fdbbaf52b45139b86c0761d6036b0
+                      - 44bf162fc5e04ab68289e6e784875203
+                    jobDetails:
+                      - jobId: 939fdbbaf52b45139b86c0761d6036b0
+                        jobName: yuanhao1
+                        userId: auth0|632xxxx
+                        userEmail: xxx@xxx.com
+                        dbVendor: dbvoracle
+                        showRelationType: fdd
+                        ignoreRecordSet: true
+                        dataflowOfAggregateFunction: direct
+                        showConstantTable: false
+                        showTransform: false
+                        ignoreFunction: true
+                        fileNames:
+                          - test.sql
+                        createTime: '2022-10-04 10:45:04'
+                        status: success
+                        sessionId: 24a4455c71fa35c0393d5747f9c23a9d99f32fa4c130a6b8da8d6a7db8d157ae_1664880305725
+                        executeTime: 0min 1sec
+                        executeTimeMillis: 0
+                        onTop: false
+                        parallel: false
+                        persist: false
+                        incremental: false
+                        schedulable: false
+                        cancelSchedule: false
+                        lastExecuteTime: '2022-10-04 10:45:05'
+                        subJobs: []
+                        version: 5.2.0
+                      - jobId: 44bf162fc5e04ab68289e6e784875203
+                        jobName: sqlserver sample lineage
+                        userId: auth0|6326xxxx
+                        userEmail: xxxx@xxxx.com
+                        dbVendor: dbvmssql
+                        showRelationType: fdd
+                        ignoreRecordSet: true
+                        showConstantTable: false
+                        showTransform: false
+                        ignoreFunction: true
+                        fileNames:
+                          - metadata.zip
+                        createTime: '2022-09-18 06:46:20'
+                        status: success
+                        sessionId: e1bc494a6f683c9e724c5f018d2a0c96d80304a3ddb025caf87dc1ac19e1a785_1636819107871
+                        hasMetadata: true
+                        executeTime: 0min 10sec
+                        executeTimeMillis: 0
+                        onTop: false
+                        parallel: false
+                        persist: false
+                        incremental: false
+                        schedulable: false
+                        cancelSchedule: true
+                  
         201:
           description: Created
           content: {}
@@ -4826,6 +4926,7 @@ paths:
         content:
           multipart/form-data:
             schema:
+              type: object
               properties:
                 sqlfiles:
                   type: array
@@ -4891,6 +4992,7 @@ paths:
         content:
           multipart/form-data:
             schema:
+              type: object
               properties:
                 sqlfiles:
                   type: array
@@ -5102,9 +5204,9 @@ paths:
         schema:
           type: boolean
           default: false
-      - name: sql source
+      - name: sqlsource
         in: query
-        description: sqlsource
+        description: sql source
         schema:
           type: string
       - name: token
@@ -5120,7 +5222,7 @@ paths:
           default: false
       - name: userId
         in: query
-        description: user id
+        description: the user id of sqlflow web or client
         required: true
         schema:
           type: string
@@ -5128,12 +5230,14 @@ paths:
         content:
           multipart/form-data:
             schema:
+              type: object
               properties:
                 sqlfiles:
                   type: array
                   items:
                     type: string
                     format: binary
+                    
       responses:
         200:
           description: OK
