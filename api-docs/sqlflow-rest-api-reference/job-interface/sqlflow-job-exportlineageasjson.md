@@ -1,2 +1,130 @@
-# /sqlflow/job/deleteUserJob
+# /sqlflow/job/exportLineageAsJson
 
+#### Export data lineage in json format
+
+{% swagger src="../../../.gitbook/assets/swagger.yaml" path="/sqlflow/job/exportLineageAsJson" method="post" %}
+[swagger.yaml](../../../.gitbook/assets/swagger.yaml)
+{% endswagger %}
+
+Sample Response is a file in Json format:
+
+```json
+{
+	"jobId":"939fdbbaf52b45139b86c0761d6036b0",
+	"code":200,
+	"data":{
+		"mode":"global",
+		"summary":{
+			"schema":0,
+			"process":1,
+			"database":0,
+			"view":0,
+			"mostRelationTables":[],
+			"column":3,
+			"relationship":0,
+			"table":1
+		},
+		"sqlflow":{
+			"dbvendor":"dbvoracle",
+			"relationships":[],
+			"dbobjs":[
+				{
+					"queryHashId":"04ebc5aec1a07e1db80b0bc798742875",
+					"name":"QUERY INSERT-1",
+					"coordinates":[
+						{
+							"hashCode":"0",
+							"x":1,
+							"y":1
+						},
+						{
+							"hashCode":"0",
+							"x":1,
+							"y":73
+						}
+					],
+					"id":"8",
+					"type":"process"
+				},
+				{
+					"columns":[
+						{
+							"name":"ID",
+							"coordinates":[
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":28
+								},
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":30
+								}
+							],
+							"id":"5"
+						},
+						{
+							"name":"FIRST_NAME",
+							"coordinates":[
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":32
+								},
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":42
+								}
+							],
+							"id":"6"
+						},
+						{
+							"name":"LAST_NAME",
+							"coordinates":[
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":44
+								},
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":53
+								}
+							],
+							"id":"7"
+						}
+					],
+					"name":"RAW_CUSTOMERS",
+					"coordinates":[
+						{
+							"hashCode":"0",
+							"x":1,
+							"y":13
+						},
+						{
+							"hashCode":"0",
+							"x":1,
+							"y":26
+						}
+					],
+					"id":"4",
+					"type":"table"
+				}
+			]
+		},
+		"graph":{
+			"relationshipIdMap":{},
+			"elements":{
+				"tables":[],
+				"edges":[]
+			},
+			"tooltip":{},
+			"listIdMap":{}
+		}
+	},
+	"sessionId":"24a4455c71fa35c0393d5747f9c23a9d99f32fa4c130a6b8da8d6a7db8d157ae_1664880305725"
+}
+```
