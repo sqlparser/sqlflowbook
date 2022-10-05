@@ -192,13 +192,11 @@ Sample Response:
 
 
 
-**----------------------------------------------TODO---------------------------------------------**
-
 **3. Export data lineage**
 
 When the job status is **success**, you can export the data lineage in json, csv, graphml formats
 
-* 3.1 Export data lineage in json format
+* 3.1 [Export data lineage in json format](sqlflow-job-exportlineageasjson.md)
 
 ```
 /gspLive_backend/sqlflow/job/exportLineageAsJson
@@ -210,11 +208,138 @@ Example in `Curl`
 curl -X POST "https://api.gudusoft.com/gspLive_backend/sqlflow/job/exportLineageAsJson" -F "userId=YOUR USER ID HERE" -F "token=YOUR TOKEN HERE" -F "jobId=c359aef4bd9641d697732422debd8055" --output lineage.json
 ```
 
+{% swagger src="../../../.gitbook/assets/swagger.yaml" path="/sqlflow/job/exportLineageAsJson" method="post" %}
+[swagger.yaml](../../../.gitbook/assets/swagger.yaml)
+{% endswagger %}
+
 **Note:**
 
 > If you want to get table to table relation, please add option -F "tableToTable=true"
 
-* 3.2 Export data lineage in csv format
+Sample Response is a file in Json format:
+
+```json
+{
+	"jobId":"939fdbbaf52b45139b86c0761d6036b0",
+	"code":200,
+	"data":{
+		"mode":"global",
+		"summary":{
+			"schema":0,
+			"process":1,
+			"database":0,
+			"view":0,
+			"mostRelationTables":[],
+			"column":3,
+			"relationship":0,
+			"table":1
+		},
+		"sqlflow":{
+			"dbvendor":"dbvoracle",
+			"relationships":[],
+			"dbobjs":[
+				{
+					"queryHashId":"04ebc5aec1a07e1db80b0bc798742875",
+					"name":"QUERY INSERT-1",
+					"coordinates":[
+						{
+							"hashCode":"0",
+							"x":1,
+							"y":1
+						},
+						{
+							"hashCode":"0",
+							"x":1,
+							"y":73
+						}
+					],
+					"id":"8",
+					"type":"process"
+				},
+				{
+					"columns":[
+						{
+							"name":"ID",
+							"coordinates":[
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":28
+								},
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":30
+								}
+							],
+							"id":"5"
+						},
+						{
+							"name":"FIRST_NAME",
+							"coordinates":[
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":32
+								},
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":42
+								}
+							],
+							"id":"6"
+						},
+						{
+							"name":"LAST_NAME",
+							"coordinates":[
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":44
+								},
+								{
+									"hashCode":"0",
+									"x":1,
+									"y":53
+								}
+							],
+							"id":"7"
+						}
+					],
+					"name":"RAW_CUSTOMERS",
+					"coordinates":[
+						{
+							"hashCode":"0",
+							"x":1,
+							"y":13
+						},
+						{
+							"hashCode":"0",
+							"x":1,
+							"y":26
+						}
+					],
+					"id":"4",
+					"type":"table"
+				}
+			]
+		},
+		"graph":{
+			"relationshipIdMap":{},
+			"elements":{
+				"tables":[],
+				"edges":[]
+			},
+			"tooltip":{},
+			"listIdMap":{}
+		}
+	},
+	"sessionId":"24a4455c71fa35c0393d5747f9c23a9d99f32fa4c130a6b8da8d6a7db8d157ae_1664880305725"
+}
+```
+
+* 3.2 [Export data lineage in csv format](sqlflow-job-exportfulllineageascsv.md)
 
 ```
 /gspLive_backend/sqlflow/job/exportFullLineageAsCsv
@@ -226,13 +351,17 @@ Example in `Curl`
 curl -X POST "https://api.gudusoft.com/gspLive_backend/sqlflow/job/exportFullLineageAsCsv" -F "userId=YOUR USER ID HERE" -F "token=YOUR TOKEN HERE" -F "jobId=c359aef4bd9641d697732422debd8055" --output lineage.csv
 ```
 
+{% swagger src="../../../.gitbook/assets/swagger.yaml" path="/sqlflow/job/exportFullLineageAsCsv" method="post" %}
+[swagger.yaml](../../../.gitbook/assets/swagger.yaml)
+{% endswagger %}
+
 **Note:**
 
 > If you want to get table to table relation, please add option -F "tableToTable=true"
 
 > If you want to change csv delimiter, please add option -F "delimiter=\<delimiter char>"
 
-* 3.3 Export data lineage in graphml format, you can view the lineage graph at yEd Graph Editor
+* 3.3 [Export data lineage in graphml format with which you can view the lineage graph at yEd Graph Editor](sqlflow-job-exportlineageasgraphml.md)
 
 ```
 /gspLive_backend/sqlflow/job/exportLineageAsGraphml
@@ -244,9 +373,15 @@ Example in `Curl`
 curl -X POST "https://api.gudusoft.com/gspLive_backend/sqlflow/job/exportLineageAsGraphml" -F "userId=YOUR USER ID HERE" -F "token=YOUR TOKEN HERE" -F "jobId=c359aef4bd9641d697732422debd8055" --output lineage.graphml
 ```
 
+{% swagger src="../../../.gitbook/assets/swagger.yaml" path="/sqlflow/job/exportLineageAsGraphml" method="post" %}
+[swagger.yaml](../../../.gitbook/assets/swagger.yaml)
+{% endswagger %}
+
 **Note:**
 
 > If you want to get table to table relation, please add option -F "tableToTable=true"
+
+**----------------------------------------------TODO---------------------------------------------**
 
 #### 4. Regular job rest API
 
@@ -254,14 +389,18 @@ curl -X POST "https://api.gudusoft.com/gspLive_backend/sqlflow/job/exportLineage
 
 Call this API by sending the SQL files and get the result includes the data lineage. SQLFlow job supports both of multiple files and zip archive file.
 
-If the job is incremental, please set incremental=true
+Set incremental=true If the job is incremental.&#x20;
 
-* first submit, jobId is null, and record the jobId field from response message
-* second submit, jobId can't be null, please fill the jobId which returns by the first submit response.
+* jobId should be null for the first submit and please note down the jobId field from response message
+* jobId cannot be null for next submit. Give the jobId which is returned in the first submit response.
 
 ```
 /gspLive_backend/sqlflow/job/submitPersistJob
 ```
+
+{% swagger src="../../../.gitbook/assets/swagger.yaml" path="/sqlflow/job/submitPersistJob" method="post" %}
+[swagger.yaml](../../../.gitbook/assets/swagger.yaml)
+{% endswagger %}
 
 Example in `Curl`
 

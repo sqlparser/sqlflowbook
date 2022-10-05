@@ -1,6 +1,6 @@
 # User Interface
 
-Once you have the `userid` and `secret key`, the first API need to call is:
+Once you have the `userid` and `secret key` the first API need to call is:
 
 ```
 /gspLive_backend/user/generateToken
