@@ -128,3 +128,5 @@ Sample Response is a file in Json format:
 	"sessionId":"24a4455c71fa35c0393d5747f9c23a9d99f32fa4c130a6b8da8d6a7db8d157ae_1664880305725"
 }
 ```
+
+[**Try it out!**](../../swagger-ui.md)****

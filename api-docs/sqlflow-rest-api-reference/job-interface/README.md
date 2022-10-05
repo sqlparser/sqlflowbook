@@ -389,14 +389,18 @@ curl -X POST "https://api.gudusoft.com/gspLive_backend/sqlflow/job/exportLineage
 
 Call this API by sending the SQL files and get the result includes the data lineage. SQLFlow job supports both of multiple files and zip archive file.
 
-If the job is incremental, please set incremental=true
+Set incremental=true If the job is incremental.&#x20;
 
-* first submit, jobId is null, and record the jobId field from response message
-* second submit, jobId can't be null, please fill the jobId which returns by the first submit response.
+* jobId should be null for the first submit and please note down the jobId field from response message
+* jobId cannot be null for next submit. Give the jobId which is returned in the first submit response.
 
 ```
 /gspLive_backend/sqlflow/job/submitPersistJob
 ```
+
+{% swagger src="../../../.gitbook/assets/swagger.yaml" path="/sqlflow/job/submitPersistJob" method="post" %}
+[swagger.yaml](../../../.gitbook/assets/swagger.yaml)
+{% endswagger %}
 
 Example in `Curl`
 

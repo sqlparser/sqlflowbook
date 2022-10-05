@@ -4788,7 +4788,7 @@ paths:
           type: string
       - name: onTop
         in: query
-        description: onTop
+        description: whether set the job on the top
         required: true
         schema:
           type: boolean
@@ -4834,33 +4834,51 @@ paths:
       parameters:
       - name: account
         in: query
-        description: account
+        description: account name of the target database
         schema:
           type: string
-      - name: cronExpression
+      - name: password
         in: query
-        description: cronExpression
+        description: db password
         schema:
           type: string
+      - name: port
+        in: query
+        description: db port
+        schema:
+          type: integer
+          format: int32
       - name: database
         in: query
-        description: database
+        description: source database
         schema:
           type: string
+      - name: schedulable
+        in: query
+        description: whether schedulable
+        schema:
+          type: boolean
+          default: false
+      - name: cronExpression
+        in: query
+        description: cron expression to schedule time for the job to be executed
+        schema:
+          type: string
+          example: 0 1 * * *
       - name: dbvendor
         in: query
-        description: dbvendor
+        description: database dbvendor
         required: true
         schema:
           type: string
       - name: defaultDatabase
         in: query
-        description: defaultDatabase
+        description: default databse when there's no metadata
         schema:
           type: string
       - name: defaultSchema
         in: query
-        description: defaultSchema
+        description: default schema
         schema:
           type: string
       - name: extra
@@ -4870,24 +4888,25 @@ paths:
           type: string
       - name: firstSubmit
         in: query
-        description: firstSubmit
+        description: whether this is the first submit
         schema:
           type: boolean
           default: false
       - name: hostname
         in: query
-        description: hostname
+        description: db hostname
         schema:
           type: string
       - name: incremental
         in: query
-        description: incremental
+        description: whether incremental job
         schema:
           type: boolean
           default: true
       - name: jobId
         in: query
-        description: jobId
+        description: jobId should be null for the first submit and please note down the jobId field from response message. 
+          jobId cannot be null for next submit. Give the jobId which is returned in the first submit response.
         schema:
           type: string
       - name: jobName
@@ -4897,24 +4916,7 @@ paths:
           type: string
       - name: onTop
         in: query
-        description: onTop
-        schema:
-          type: boolean
-          default: false
-      - name: password
-        in: query
-        description: password
-        schema:
-          type: string
-      - name: port
-        in: query
-        description: port
-        schema:
-          type: integer
-          format: int32
-      - name: schedulable
-        in: query
-        description: schedulable
+        description: whether set the job on the top
         schema:
           type: boolean
           default: false
@@ -4953,6 +4955,19 @@ paths:
             application/json;charset=utf-8:
               schema:
                 type: string
+                example:
+                  code: 200
+                  data:
+                    jobId: c359aef4bd9641d697732422debd8055
+                    jobName: job1
+                    userId: google-oauth2|104002923119102769706
+                    dbVendor: dbvmssql
+                    dataSource: {}
+                    fileNames:
+                      - 1.sql
+                      - 1.zip
+                    createTime: '2020-12-15 15:14:39'
+                    status: create
         201:
           description: Created
           content: {}
@@ -5184,7 +5199,7 @@ paths:
           type: string
       - name: onTop
         in: query
-        description: whether job is on top
+        description: whether set the job on the top
         schema:
           type: boolean
           default: false
