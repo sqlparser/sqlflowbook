@@ -135,7 +135,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -204,7 +205,8 @@ paths:
           - dbvvertica
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -243,7 +245,8 @@ paths:
       parameters:
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -355,7 +358,7 @@ paths:
           - dbvvertica
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -397,16 +400,13 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
         description: whether show transform
@@ -563,7 +563,7 @@ paths:
           - dbvvertica
       - name: delimiter
         in: query
-        description: delimiter
+        description: delimiter of the values in CSV, default would be ','
         schema:
           type: string
           default: ','
@@ -615,16 +615,13 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
         description: showTransform
@@ -633,7 +630,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -652,7 +649,8 @@ paths:
         example: false
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -773,7 +771,7 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
@@ -788,7 +786,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simpleOutput
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -805,7 +803,8 @@ paths:
           default: .*
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -911,7 +910,7 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
@@ -926,7 +925,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simpleOutput
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -943,7 +942,8 @@ paths:
           default: .*
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -1070,16 +1070,13 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
         description: whether show transform
@@ -1108,7 +1105,8 @@ paths:
         example: false
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -1175,7 +1173,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -1296,16 +1295,13 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
         description: showTransform
@@ -1314,7 +1310,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -1326,7 +1322,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -1433,7 +1430,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -1549,7 +1547,7 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
@@ -1564,7 +1562,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simpleOutput
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -1581,7 +1579,8 @@ paths:
           default: .*
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -1659,7 +1658,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -1738,7 +1738,7 @@ paths:
           - dbvvertica
       - name: delimiter
         in: query
-        description: delimiter
+        description: delimiter of the values in CSV, default would be ','
         schema:
           type: string
           default: ','
@@ -1794,16 +1794,13 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
         description: showTransform
@@ -1812,7 +1809,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -1831,7 +1828,8 @@ paths:
         example: false
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -1916,7 +1914,7 @@ paths:
           - dbvvertica
       - name: delimiter
         in: query
-        description: delimiter
+        description: delimiter of the values in CSV, default would be ','
         schema:
           type: string
           default: ','
@@ -1972,16 +1970,13 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
         description: showTransform
@@ -1990,7 +1985,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -2009,7 +2004,8 @@ paths:
         example: false
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -2162,16 +2158,13 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
         description: showTransform
@@ -2180,7 +2173,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -2192,7 +2185,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -2309,7 +2303,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -2414,7 +2409,7 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
@@ -2429,7 +2424,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simpleOutput
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -2446,7 +2441,8 @@ paths:
           default: .*
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -2552,7 +2548,7 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
@@ -2567,7 +2563,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simpleOutput
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -2584,7 +2580,8 @@ paths:
           default: .*
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -2658,7 +2655,8 @@ paths:
           - dbvvertica
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -2744,7 +2742,7 @@ paths:
   /sqlflow/job/deleteUserJob:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: delete user job
       description: delete user job
       operationId: deleteUserJobUsingPOST
@@ -2756,7 +2754,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -2788,7 +2787,7 @@ paths:
   /sqlflow/job/displayMetadataQueryGraph:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: display user job database metadata query graph
       description: display user job database metadata query graph
       operationId: displayMetadataQueryGraphUsingPOST
@@ -2857,7 +2856,7 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
@@ -2872,13 +2871,14 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simpleOutput
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -2916,7 +2916,7 @@ paths:
   /sqlflow/job/displayMetadataQuerySource:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: display user job database metadata query source
       description: display user job database metadata query source
       operationId: displayMetadataQuerySourceUsingPOST
@@ -2946,7 +2946,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -2978,7 +2979,7 @@ paths:
   /sqlflow/job/displayUserJobGraph:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: display user job graph
       description: display user job graph
       operationId: displayUserJobGraphUsingPOST
@@ -3053,16 +3054,13 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
         description: showTransform
@@ -3071,7 +3069,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -3083,7 +3081,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -3121,7 +3120,7 @@ paths:
   /sqlflow/job/displayUserJobSummary:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: display the specific user job summary
       description: display the specific user job summary
       operationId: displayUserJobSummaryUsingPOST
@@ -3138,7 +3137,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -3201,14 +3201,15 @@ paths:
   /sqlflow/job/displayUserJobsSummary:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: Get all jobs (include history jobs) status and summary
       description: Get all jobs (include history jobs) status and summary
       operationId: displayUserJobsSummaryUsingPOST
       parameters:
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -3303,7 +3304,7 @@ paths:
   /sqlflow/job/displayUserLatestJobGraph:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: display user latest job graph
       description: display user latest job graph
       operationId: displayUserLatestJobGraphUsingPOST
@@ -3358,16 +3359,13 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
         description: showTransform
@@ -3376,14 +3374,15 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
         example: false
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -3421,7 +3420,7 @@ paths:
   /sqlflow/job/displayUserLatestJobLeftMostTable:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: display user latest job left-most source table graph
       description: display user latest job left-most source table graph
       operationId: displayUserLatestJobLeftMostTableUsingPOST
@@ -3476,16 +3475,13 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
         description: showTransform
@@ -3494,7 +3490,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -3512,7 +3508,8 @@ paths:
           default: .*
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -3550,7 +3547,7 @@ paths:
   /sqlflow/job/displayUserLatestJobTableLevelLineage:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: display user latest job table level lineage
       description: display user latest job table level lineage
       operationId: displayUserLatestJobTableLevelLineageUsingPOST
@@ -3563,7 +3560,8 @@ paths:
           default: true
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -3595,7 +3593,7 @@ paths:
   /sqlflow/job/download/parquet:
     get:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: download parquet file
       description: download parquet file
       operationId: downloadParquetUsingGET
@@ -3618,7 +3616,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -3650,7 +3649,7 @@ paths:
   /sqlflow/job/download/subJobFile:
     get:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: download subjob file
       description: download subjob file
       operationId: downloadSubJobFileUsingGET
@@ -3679,7 +3678,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -3711,7 +3711,7 @@ paths:
   /sqlflow/job/exportDatabaseMetadata:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: export user job database metadata
       description: export user job database metadata
       operationId: exportDatabaseMetadataUsingPOST
@@ -3730,7 +3730,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -3762,36 +3763,37 @@ paths:
   /sqlflow/job/exportFullLineageAsCsv:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: export sqlflow full lineage as csv format
       description: export full sqlflow lineage as csv format
       operationId: exportFullLineageAsCsvUsingPOST
       parameters:
       - name: delimiter
         in: query
-        description: delimiter
+        description: delimiter of the values in CSV, default would be ','
         schema:
           type: string
           default: ','
       - name: jobId
         in: query
-        description: jobId
+        description: job to export. will return user's latest job if empty
         schema:
           type: string
       - name: tableToTable
         in: query
-        description: tableToTable
+        description: whether show table to table relation only
         schema:
           type: boolean
           default: false
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
         in: query
-        description: userId
+        description: the user id of sqlflow web or client
         required: true
         schema:
           type: string
@@ -3802,6 +3804,7 @@ paths:
             application/json;charset=utf-8:
               schema:
                 type: string
+                format: binary
         201:
           description: Created
           content: {}
@@ -3818,19 +3821,20 @@ paths:
   /sqlflow/job/exportFullLineageAsJson:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: export sqlflow full lineage as json format
       description: export full sqlflow lineage as csv format
       operationId: exportFullLineageAsJsonUsingPOST
       parameters:
       - name: jobId
         in: query
-        description: jobId
+        description: job to export. will return user's latest job if empty
         schema:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -3862,7 +3866,7 @@ paths:
   /sqlflow/job/exportLineageAsCsv:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: export sqlflow lineage as csv format
       description: export sqlflow lineage as csv format
       operationId: exportLineageAsCsvUsingPOST_1
@@ -3879,7 +3883,7 @@ paths:
           type: string
       - name: delimiter
         in: query
-        description: delimiter
+        description: delimiter of the values in CSV, default would be ','
         schema:
           type: string
           default: ','
@@ -3899,7 +3903,7 @@ paths:
         example: false
       - name: jobId
         in: query
-        description: job id
+        description: job to export. will return user's latest job if empty
         schema:
           type: string
       - name: schema
@@ -3924,16 +3928,13 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
         description: showTransform
@@ -3942,7 +3943,7 @@ paths:
           default: false
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
@@ -3961,7 +3962,8 @@ paths:
         example: false
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -3999,7 +4001,7 @@ paths:
   /sqlflow/job/exportLineageAsGraphml:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: export sqlflow lineage as graphml format
       description: export sqlflow lineage as graphml format
       operationId: exportLineageAsGraphMLUsingPOST
@@ -4014,39 +4016,44 @@ paths:
         description: database
         schema:
           type: string
+      - name: schema
+        in: query
+        description: schema
+        schema:
+          type: string
+      - name: table
+        in: query
+        description: table
+        schema:
+          type: string
       - name: ignoreFunction
         in: query
-        description: ignore function
+        description: whether ignore function
         schema:
           type: boolean
           default: false
         example: false
       - name: ignoreRecordSet
         in: query
-        description: ignore record set
+        description: whether ignore record set
         schema:
           type: boolean
           default: false
         example: false
       - name: jobId
         in: query
-        description: job id
-        schema:
-          type: string
-      - name: schema
-        in: query
-        description: schema
+        description: job to export. will return user's latest job if empty
         schema:
           type: string
       - name: showConstantTable
         in: query
-        description: showConstantTable
+        description: whether show constant table
         schema:
           type: boolean
           default: false
       - name: showLinkOnly
         in: query
-        description: show link only
+        description: whether show link only
         schema:
           type: boolean
           default: true
@@ -4055,44 +4062,37 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
-        description: showTransform
+        description: whether show Transform
         schema:
           type: boolean
           default: false
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
         example: false
-      - name: table
-        in: query
-        description: table
-        schema:
-          type: string
       - name: tableToTable
         in: query
-        description: show table to table relation only
+        description: whether show table to table relation only
         schema:
           type: boolean
           default: false
         example: false
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -4103,7 +4103,7 @@ paths:
           default: false
       - name: userId
         in: query
-        description: user id
+        description: the user id of sqlflow web or client
         required: true
         schema:
           type: string
@@ -4114,6 +4114,7 @@ paths:
             application/json;charset=utf-8:
               schema:
                 type: string
+                format: binary
         201:
           description: Created
           content: {}
@@ -4130,38 +4131,19 @@ paths:
   /sqlflow/job/exportLineageAsJson:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: export sqlflow lineage as json format
       description: export sqlflow lineage as json format
       operationId: exportLineageAsJsonUsingPOST
       parameters:
       - name: column
         in: query
-        description: column
+        description: column to export
         schema:
           type: string
       - name: database
         in: query
-        description: database
-        schema:
-          type: string
-      - name: ignoreFunction
-        in: query
-        description: ignore function
-        schema:
-          type: boolean
-          default: false
-        example: false
-      - name: ignoreRecordSet
-        in: query
-        description: ignore record set
-        schema:
-          type: boolean
-          default: false
-        example: false
-      - name: jobId
-        in: query
-        description: job id
+        description: source database
         schema:
           type: string
       - name: schema
@@ -4169,15 +4151,39 @@ paths:
         description: schema
         schema:
           type: string
+      - name: table
+        in: query
+        description: table
+        schema:
+          type: string
+      - name: ignoreFunction
+        in: query
+        description: whether ignore function
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: ignoreRecordSet
+        in: query
+        description: whether ignore record set
+        schema:
+          type: boolean
+          default: false
+        example: false
+      - name: jobId
+        in: query
+        description: job to export. will return user's latest job if empty
+        schema:
+          type: string
       - name: showConstantTable
         in: query
-        description: showConstantTable
+        description: whether show constant table
         schema:
           type: boolean
           default: false
       - name: showLinkOnly
         in: query
-        description: show link only
+        description: whether show link only
         schema:
           type: boolean
           default: true
@@ -4186,44 +4192,37 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
-        style: form
-        explode: true
         schema:
-          type: array
-          items:
-            type: string
+          type: string
+          default: fdd
       - name: showTransform
         in: query
-        description: showTransform
+        description: whether show Transform
         schema:
           type: boolean
           default: false
       - name: simpleOutput
         in: query
-        description: simple output
+        description: simple output, ignore the intermediate results, defualt is false.
         schema:
           type: boolean
           default: false
         example: false
-      - name: table
-        in: query
-        description: table
-        schema:
-          type: string
       - name: tableToTable
         in: query
-        description: show table to table relation only
+        description: whether show table to table relation only
         schema:
           type: boolean
           default: false
         example: false
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -4234,7 +4233,7 @@ paths:
           default: false
       - name: userId
         in: query
-        description: user id
+        description: the user id of sqlflow web or client
         required: true
         schema:
           type: string
@@ -4242,9 +4241,13 @@ paths:
         200:
           description: OK
           content:
-            application/json;charset=utf-8:
+            application/json:
               schema:
-                type: string
+                type: object
+                properties:
+                  jsonResonse:
+                    type: string
+                    format: binary
         201:
           description: Created
           content: {}
@@ -4261,7 +4264,7 @@ paths:
   /sqlflow/job/exportMetadata:
     get:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: export metadata.json
       description: export metadata.json
       operationId: exportMetadataUsingGET
@@ -4297,7 +4300,7 @@ paths:
   /sqlflow/job/fetchLeftMostTableLineageSQL:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: fetch left most table lineage sql
       description: fetch left most table lineage sql
       operationId: fetchLeftMostTableLineageSQLUsingPOST
@@ -4334,7 +4337,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -4366,7 +4370,7 @@ paths:
   /sqlflow/job/generate/parquet:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: generate parquet file
       description: generate parquet file
       operationId: generateParquetUsingPOST
@@ -4389,7 +4393,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -4421,31 +4426,32 @@ paths:
   /sqlflow/job/graph/summary:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: generate sqlflow job summary
       description: generate sqlflow job summary
       operationId: generateSqlflowGraphSummaryUsingPOST
       parameters:
       - name: dbvendor
         in: query
-        description: dbvendor
+        description: database vendor
         required: true
         schema:
           type: string
       - name: jobId
         in: query
-        description: jobId
+        description: job to export. will return user's latest job if empty
         required: true
         schema:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
         in: query
-        description: userId
+        description: the user id of sqlflow web or client
         required: true
         schema:
           type: string
@@ -4472,7 +4478,7 @@ paths:
   /sqlflow/job/leftMostSourceTable:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: generate left-most source tables
       description: generate left-most source tables
       operationId: leftMostSourceTableUsingPOST
@@ -4499,7 +4505,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -4531,14 +4538,14 @@ paths:
   /sqlflow/job/leftMostSourceTableAsCsv:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: generate left-most source tables as csv format
       description: generate left-most source tables
       operationId: leftMostSourceTableAsCsvUsingPOST
       parameters:
       - name: delimiter
         in: query
-        description: delimiter
+        description: delimiter of the values in CSV, default would be ','
         schema:
           type: string
           default: ','
@@ -4559,7 +4566,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -4591,14 +4599,15 @@ paths:
   /sqlflow/job/listScheduleJobs:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: list schedule jobs
       description: list schedule jobs
       operationId: listScheduleJobsUsingPOST
       parameters:
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -4630,7 +4639,7 @@ paths:
   /sqlflow/job/pauseScheduleJob:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: pause schedule job
       description: pause schedule job
       operationId: pauseScheduleJobUsingPOST
@@ -4643,7 +4652,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -4675,7 +4685,7 @@ paths:
   /sqlflow/job/rerunJob:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: re-run job
       description: re-run job
       operationId: rerunJobUsingPOST
@@ -4719,7 +4729,7 @@ paths:
   /sqlflow/job/resumeScheduleJob:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: resume schedule job
       description: resume schedule job
       operationId: resumeScheduleJobUsingPOST
@@ -4732,7 +4742,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -4764,7 +4775,7 @@ paths:
   /sqlflow/job/setJobOnTop:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: set user job on top
       description: set user job on top
       operationId: setJobOnTopUsingPOST
@@ -4777,13 +4788,14 @@ paths:
           type: string
       - name: onTop
         in: query
-        description: onTop
+        description: whether set the job on the top
         required: true
         schema:
           type: boolean
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -4815,40 +4827,58 @@ paths:
   /sqlflow/job/submitPersistJob:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: submit persist or incremental job
       description: submit persist or incremental job
       operationId: submitPersistJobUsingPOST
       parameters:
       - name: account
         in: query
-        description: account
+        description: account name of the target database
         schema:
           type: string
-      - name: cronExpression
+      - name: password
         in: query
-        description: cronExpression
+        description: db password
         schema:
           type: string
+      - name: port
+        in: query
+        description: db port
+        schema:
+          type: integer
+          format: int32
       - name: database
         in: query
-        description: database
+        description: source database
         schema:
           type: string
+      - name: schedulable
+        in: query
+        description: whether schedulable
+        schema:
+          type: boolean
+          default: false
+      - name: cronExpression
+        in: query
+        description: cron expression to schedule time for the job to be executed
+        schema:
+          type: string
+          example: 0 1 * * *
       - name: dbvendor
         in: query
-        description: dbvendor
+        description: database dbvendor
         required: true
         schema:
           type: string
       - name: defaultDatabase
         in: query
-        description: defaultDatabase
+        description: default databse when there's no metadata
         schema:
           type: string
       - name: defaultSchema
         in: query
-        description: defaultSchema
+        description: default schema
         schema:
           type: string
       - name: extra
@@ -4858,24 +4888,25 @@ paths:
           type: string
       - name: firstSubmit
         in: query
-        description: firstSubmit
+        description: whether this is the first submit
         schema:
           type: boolean
           default: false
       - name: hostname
         in: query
-        description: hostname
+        description: db hostname
         schema:
           type: string
       - name: incremental
         in: query
-        description: incremental
+        description: whether incremental job
         schema:
           type: boolean
           default: true
       - name: jobId
         in: query
-        description: jobId
+        description: jobId should be null for the first submit and please note down the jobId field from response message. 
+          jobId cannot be null for next submit. Give the jobId which is returned in the first submit response.
         schema:
           type: string
       - name: jobName
@@ -4885,24 +4916,7 @@ paths:
           type: string
       - name: onTop
         in: query
-        description: onTop
-        schema:
-          type: boolean
-          default: false
-      - name: password
-        in: query
-        description: password
-        schema:
-          type: string
-      - name: port
-        in: query
-        description: port
-        schema:
-          type: integer
-          format: int32
-      - name: schedulable
-        in: query
-        description: schedulable
+        description: whether set the job on the top
         schema:
           type: boolean
           default: false
@@ -4913,7 +4927,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -4940,6 +4955,19 @@ paths:
             application/json;charset=utf-8:
               schema:
                 type: string
+                example:
+                  code: 200
+                  data:
+                    jobId: c359aef4bd9641d697732422debd8055
+                    jobName: job1
+                    userId: google-oauth2|104002923119102769706
+                    dbVendor: dbvmssql
+                    dataSource: {}
+                    fileNames:
+                      - 1.sql
+                      - 1.zip
+                    createTime: '2020-12-15 15:14:39'
+                    status: create
         201:
           description: Created
           content: {}
@@ -4956,7 +4984,7 @@ paths:
   /sqlflow/job/submitTableAffectSQLJob:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: submit table affect sql job
       description: submit a job of fetching source table affect sql
       operationId: submitTableAffectSQLJobUsingPOST
@@ -4979,7 +5007,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -5022,7 +5051,7 @@ paths:
   /sqlflow/job/submitUserJob:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: submit user job
       description: Submit a simple sqlflow job. Send the SQL files and get the data
         lineage result. SQLFlow job supports both of multiple files and zip archive
@@ -5170,7 +5199,7 @@ paths:
           type: string
       - name: onTop
         in: query
-        description: whether job is on top
+        description: whether set the job on the top
         schema:
           type: boolean
           default: false
@@ -5191,7 +5220,7 @@ paths:
         description: show relation type, required false, default value is 'fdd', multiple
           values seperated by comma like fdd,frd,fdr,join. Availables are 'fdd' value
           of target column from source column, 'frd' the recordset count of target
-          column which is affect by value of source column, 'fdr' value of target
+          column which is affected by value of source column, 'fdr' value of target
           column which is affected by the recordset count of source column, 'join'
           combines rows from two or more tables, based on a related column between
           them
@@ -5211,7 +5240,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: treatArgumentsInCountFunctionAsDirectDataflow
@@ -5265,7 +5295,7 @@ paths:
   /sqlflow/job/updateScheduleJob:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: update schedule job
       description: resume schedule job
       operationId: updateScheduleJobUsingPOST
@@ -5284,7 +5314,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
@@ -5316,7 +5347,7 @@ paths:
   /sqlflow/job/updateUserJobGraphCache:
     post:
       tags:
-      - Sqlflow User Job Interface
+      - Job Interface
       summary: update user job graph cache
       description: update user job graph cache
       operationId: updateUserJobGraphCacheUsingPOST
@@ -5328,7 +5359,8 @@ paths:
           type: string
       - name: token
         in: query
-        description: token
+        description: The token is only used when connecting to the SQLFlow Cloud server,
+          is not used when connect to the SQLFlow on-premise version.
         schema:
           type: string
       - name: userId
