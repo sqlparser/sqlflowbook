@@ -28,10 +28,10 @@ GROUP  BY d.deptno,
           d.dname; 
 ```
 
-Data of the table _`deptsal`_ come from the table _`dept`_ and the table _`emp`_. More specifically, following data lineage relationship can be deduced:&#x20;
+Data of the table _`deptsal`_ come from the table _`dept`_ and the table _`emp`_. More specifically, following data lineage relationship can be deduced:
 
-* _`deptsal.dept_no`_ field comes from _`dept.deptno`_&#x20;
-* _`deptsal.dept_name`_ field comes from _`dept.name`_&#x20;
+* _`deptsal.dept_no`_ field comes from _`dept.deptno`_
+* _`deptsal.dept_name`_ field comes from _`dept.name`_
 * _`deptsal.salary`_ field comes from _`emp.sal`_ and _`emp.comm`_
 
 Through Gudu SQLFlow, we can visualize the above data lineage as:
@@ -41,7 +41,7 @@ Through Gudu SQLFlow, we can visualize the above data lineage as:
 ### What's next?
 
 * [Sign up a new Gudu account](sign-up-a-new-account.md)
-* Read more about [Gudu SQLFlow UI ](../ui/)
+* Read more about [Gudu SQLFlow UI](../ui/)
 * Install a [SQLFlow Server](../installation/)
 * Use [SQLFlow Java Library](../java-library/)
-* Analyze your data through [Rest API ](broken-reference)
+* Analyze your data through [Rest API](https://github.com/sqlparser/sqlflowbook/blob/main/introduction/getting-started/broken-reference/README.md)

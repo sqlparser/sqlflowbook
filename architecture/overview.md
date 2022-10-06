@@ -11,7 +11,7 @@ Support more than 20 major databases, including bigquery, couchbase, dax, db2, g
 
 Just paste the SQL script and click a button, you will get the data lineage diagram instantly, highlight the dataflow in the graph with a simple mouse click.
 
-You can also call the [RESTful API](broken-reference) provided by this tool in your program and get the data lineage and diagram model information in a JSON snippet to make further usage.
+You can also call the [RESTful API](https://github.com/sqlparser/sqlflowbook/blob/main/architecture/broken-reference/README.md) provided by this tool in your program and get the data lineage and diagram model information in a JSON snippet to make further usage.
 
 <figure><img src="../.gitbook/assets/sqlflow_architecture.png" alt=""><figcaption></figcaption></figure>
 
@@ -29,7 +29,7 @@ You can also call the [RESTful API](broken-reference) provided by this tool in y
 
 1.  `SQLFlow-Analyzer`: receiving the SQL script from the frontend and parse the SQL script into parsed tree nodes with [the GSP library](http://www.sqlparser.com), calculating the data lineage by analyzing AST.
 
-    The `SQLFlow-Analyzer` component can be executed as a standalone tool. Take SQL text as input and generate data lineage in JSON format. Check [Java Library](../introduction/java-library/usage.md) for more Info.
+    The `SQLFlow-Analyzer` component can be executed as a standalone tool. Take SQL text as input and generate data lineage in JSON format. Check [Java Library](../introduction/java-library/usage/) for more Info.
 2. `FlowLayout`: Calculating the layout of database objects(table/column) in the dlineage and generate the diagram model with all necessary position data, including nodes and edges. `FlowLayout` depends on `doLayout library` to layout the database objects.
 3. Return a JSON snippet including the data lineage and diagram model to the frontend.
 
@@ -46,7 +46,7 @@ You can also call the [RESTful API](broken-reference) provided by this tool in y
 
     Or connect to the [SQLFlow Cloud](https://sqlflow.gudusoft.com) to use the RESTFul API
 
-    * [SQLFlow API document](broken-reference)
+    * [SQLFlow API document](https://github.com/sqlparser/sqlflowbook/blob/main/architecture/broken-reference/README.md)
 3.  Install both frontend and backend on your own application/server (SQLFlow on-premise version)
 
     Setup both the frontend and backend of SQLFlow on our server. Please check the [setup manual.](../introduction/installation/)
