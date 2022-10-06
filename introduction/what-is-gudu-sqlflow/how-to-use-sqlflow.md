@@ -1,5 +1,5 @@
 ---
-description: 提纲 https://github.com/sqlparser/sqlflow_public#how-to-use-sqlflow
+description: https://github.com/sqlparser/sqlflow_public#how-to-use-sqlflow
 ---
 
 # How to use SQLFlow

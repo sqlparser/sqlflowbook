@@ -1,5 +1,5 @@
 ---
-description: 提纲 https://github.com/sqlparser/sqlflow_public#what-sqlflow-can-do-for-you
+description: https://github.com/sqlparser/sqlflow_public#what-sqlflow-can-do-for-you
 ---
 
 # What SQLFlow can do
