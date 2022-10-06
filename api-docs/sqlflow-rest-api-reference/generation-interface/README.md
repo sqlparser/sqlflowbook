@@ -1,6 +1,5 @@
 ---
-description: >-
-  https://github.com/sqlparser/sqlflow_public/blob/master/api/sqlflow_api.md#sqlflow-generation-interface
+description: https://github.com/sqlparser/sqlflow_public/tree/master/api
 ---
 
 # Generation Interface
