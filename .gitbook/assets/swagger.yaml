@@ -5205,7 +5205,8 @@ paths:
           default: false
       - name: parallel
         in: query
-        description: whether job is parallel
+        description: whether parallelly process the job. Parallel processing will lead to a high performance
+          while decreasing the lineage accuracy. 
         schema:
           type: boolean
           default: false

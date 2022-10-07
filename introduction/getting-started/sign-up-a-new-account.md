@@ -1,5 +1,5 @@
 ---
-description: 翻译自https://www.sqlflow.cn/936-2/
+description: https://www.sqlflow.cn/936-2/
 ---
 
 # Sign up a new account
