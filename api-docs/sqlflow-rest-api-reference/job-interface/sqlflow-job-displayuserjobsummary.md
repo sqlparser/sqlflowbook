@@ -43,3 +43,5 @@ Sample response:
   }
 }
 ```
+
+[**Try it out!**](../../swagger-ui.md)****
